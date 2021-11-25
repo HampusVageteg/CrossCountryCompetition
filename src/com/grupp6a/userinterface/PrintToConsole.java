@@ -10,7 +10,7 @@ public class PrintToConsole {
 	
 	public static void menu() {
 		
-		
+		System.out.println("Välkommen  tävling!");
 	}
 	
 }
