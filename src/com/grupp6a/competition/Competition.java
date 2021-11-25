@@ -5,7 +5,7 @@ public class Competition {
 	private int participants;
 	private String gender;
 	private int distance;
-	private int intervals = 4;
+	private int intervals = 5;
 	
 	
 	
@@ -20,24 +20,31 @@ public class Competition {
 	public int getParticipants() {
 		return participants;
 	}
+	
 	public void setParticipants(int participants) {
 		this.participants = participants;
 	}
+	
 	public String getGender() {
 		return gender;
 	}
+	
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	
 	public int getDistance() {
 		return distance;
 	}
+	
 	public void setDistance(int distance) {
 		this.distance = distance;
 	}
+	
 	public int getIntervals() {
 		return intervals;
 	}
+	
 	public void setIntervals(int intervals) {
 		this.intervals = intervals;
 	}
