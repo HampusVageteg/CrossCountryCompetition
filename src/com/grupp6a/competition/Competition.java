@@ -1,15 +1,20 @@
 package com.grupp6a.competition;
 
+import com.grupp6a.competitor.Person;
+
 public class Competition {
 
-	private int participants;
-	private String gender;
+	private int participants =10;
+	private char gender;
 	private int distance;
 	private int intervals = 5;
+	private Person p[] = new Person[participants];
 	
+	public Competition() {
+		
+	}
 	
-	
-	public Competition(int participants, String gender, int distance) {
+	public Competition(int participants, char gender, int distance) {
 		super();
 		this.participants = participants;
 		this.gender = gender;
@@ -17,6 +22,27 @@ public class Competition {
 		
 	}
 	
+	public void fillArray() {
+		
+		for (int i = 0; i < p.length; i++) {
+			p[i] = new Person(gender, i);
+		}
+		
+	}
+	
+	public void printArray() {
+		
+		for (int i = 0; i < p.length; i++) {
+			System.out.println(p[i].toString());
+		}
+		
+	}
+	
+	@Override
+	public String toString() {
+		return "Competition \nParticipants: " + participants + "\nGender: " + gender + "\nDistance: " + distance;
+	}
+
 	public int getParticipants() {
 		return participants;
 	}
@@ -25,11 +51,11 @@ public class Competition {
 		this.participants = participants;
 	}
 	
-	public String getGender() {
+	public char getGender() {
 		return gender;
 	}
 	
-	public void setGender(String gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
 	}
 	
@@ -48,8 +74,6 @@ public class Competition {
 	public void setIntervals(int intervals) {
 		this.intervals = intervals;
 	}
-	
-	
 	
 	
 	}

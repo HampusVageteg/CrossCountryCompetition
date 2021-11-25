@@ -1,55 +1,49 @@
 package com.grupp6a.competitor;
 
+import java.util.Random;
+
 public class Person {
 
-	private String gender;
-	private String name;
-	private int age;
+	private char gender;
 	private int startNum;
 	private int lastResult;
 	private double speed;
 
-	public Person(String gender, String name, int age, int startNum, int lastResult, double speed) {
+	Random rand = new Random();
+
+	public Person(char gender, int startNum) {
 		super();
 		this.gender = gender;
-		this.name = name;
-		this.age = age;
 		this.startNum = startNum;
-		this.lastResult = lastResult;
-		this.speed = speed;
+		
+		if (gender == 'M') {
+			this.speed = 5 + rand.nextDouble() * 2;
+		} else {
+			this.speed = 5 + rand.nextDouble();
+		}
+
 	}
 
 	public double race(int distance, int intervals) {
-		
-		double distanceBetweenIntervals = (distance *1000) / intervals;
-		
+
+		double distanceBetweenIntervals = (distance * 1000) / intervals;
+
 		double timeToInterval = distanceBetweenIntervals / this.speed;
-		
+
 		return timeToInterval;
 	}
-	
-	public String getGender() {
+
+	@Override
+	public String toString() {
+		return "Person speed: " + speed;
+	}
+
+	public char getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(char gender) {
 		this.gender = gender;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
 	}
 
 	public int getStartNum() {
@@ -76,6 +70,4 @@ public class Person {
 		this.speed = speed;
 	}
 
-	
-	
 }

@@ -1,6 +1,7 @@
 package com.grupp6a.main;
 
 import com.grupp6a.competition.Competition;
+import com.grupp6a.competition.IndividualStart;
 import com.grupp6a.competitor.Person;
 import com.grupp6a.userInput.UserInput;
 import com.grupp6a.userinterface.PrintToConsole;
@@ -9,38 +10,27 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		Competition c1 = new Competition();
+		
+		c1.fillArray();
+		c1.printArray();
+		
+		
+		Person p1 = new Person('M', 5);
+		Person p2 = new Person('M', 2);
+		
+		System.out.println("Person 1 " + p1.toString() + "\n" +  "Person 2 " + p2.toString());
+	
 		PrintToConsole.welcomeUser();
 		PrintToConsole.startMenu();
-		int choice = UserInput.userChoice(4);
 
-		programLoop(choice);
-	
+		int choice = UserInput.userChoice(3);
 
-		Person p1 = new Person("Male", "Anders", 54, 1, 5, 6.5);
-
-		Competition c1 = new Competition(1, "Male", 10);
-
-		//System.out.println(p1.race(c1.getDistance(), c1.getIntervals()));
-
-		// System.out.println("\nVINSTEN GÅR TILL " + p1.getName() + ", GRATTIS!");
-
-	}
-
-	private static void programLoop(int choice) {
+		ProgramLoop.firstBranch(choice);
 		
-		switch (choice) {
-		case 1:
-			PrintToConsole.chooseFormat();
-			break;
-		case 2:
-			PrintToConsole.instructions();
-			break;
-		case 3:
-			System.exit(0);
-			break;
+		
+		
 
-		}
 	}
-
 
 }

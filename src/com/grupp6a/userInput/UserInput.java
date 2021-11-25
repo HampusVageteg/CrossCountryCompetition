@@ -17,7 +17,7 @@ public class UserInput {
 		do {
 			try {
 				input = scan.nextInt();
-				if (input > 0 && input < limit) {
+				if (input > 0 && input <= limit) {
 					validInput = true;
 				} else {
 					PrintToConsole.invalidInput();
@@ -31,6 +31,32 @@ public class UserInput {
 
 		scan.nextLine();
 		return input;
+
+	}
+
+	public static char inputChar() {
+
+		String choice = "M";
+		boolean validInput = false;
+
+		do {
+			try {
+				choice = scan.nextLine().toUpperCase();
+
+				if (choice.equals("M") || choice.equals("F")) {
+					validInput = true;
+				}else {
+					PrintToConsole.invalidInput();
+				}
+
+			} catch (StringIndexOutOfBoundsException ex) {
+				PrintToConsole.invalidInput();
+				scan.nextLine();
+			}
+		} while (!validInput);
+
+		char charTest = choice.charAt(0);
+		return charTest;
 
 	}
 

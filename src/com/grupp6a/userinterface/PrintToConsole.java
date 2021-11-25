@@ -48,13 +48,33 @@ public class PrintToConsole {
 	
 	public static void instructions() {
 		
-		System.out.println("---------------------");
+		System.out.println("---------------------\n");
 		System.out.println("test");
 		
+	}
+	
+	public static void askParticipants() {
+		
+		System.out.println("---------------------\n");
+		System.out.println("How many participants? \nMax amount is 150");
+		
+	}
+	
+	public static void askDistance() {
+		
+		System.out.println("---------------------\n");
+		System.out.println("How long race distance? \nAnswer in km, max 50km");
+	}
+	
+	public static void askGender() {
+		
+		System.out.println("---------------------\n");
+		System.out.println("Enter gender male/female");
 	}
 
 	public static void invalidInput() {
 
+		System.out.println("---------------------");
 		System.out.println("Invalid input, please try again!");
 	}
 
