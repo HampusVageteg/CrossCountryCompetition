@@ -69,7 +69,7 @@ public class PrintToConsole {
 	public static void askGender() {
 		
 		System.out.println("---------------------\n");
-		System.out.println("Enter gender male/female");
+		System.out.println("Enter gender m/f?");
 	}
 
 	public static void invalidInput() {
