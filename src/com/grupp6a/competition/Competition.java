@@ -4,11 +4,11 @@ import com.grupp6a.competitor.Person;
 
 public class Competition {
 
-	private int participants =10;
-	private char gender;
-	private int distance;
-	private int intervals = 5;
-	private Person p[] = new Person[participants];
+	protected int participants;
+	protected char gender;
+	protected int distance;
+	protected int intervals = 5;
+	Person p[] = new Person[participants];
 	
 	public Competition() {
 		
@@ -23,6 +23,7 @@ public class Competition {
 	}
 	
 	public void fillArray() {
+		
 		
 		for (int i = 0; i < p.length; i++) {
 			p[i] = new Person(gender, i);
@@ -40,7 +41,7 @@ public class Competition {
 	
 	@Override
 	public String toString() {
-		return "Competition \nParticipants: " + participants + "\nGender: " + gender + "\nDistance: " + distance;
+		return "Competition \nParticipants: " + participants + "\nGender: " + gender + "\nDistance: " + distance + "km";
 	}
 
 	public int getParticipants() {

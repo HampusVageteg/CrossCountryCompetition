@@ -51,20 +51,23 @@ public class ProgramLoop {
 			break;
 
 		case 2:
-			MassStart m1 = new MassStart();
+	
 			
 			PrintToConsole.askParticipants();
 			numOfParticipants = UserInput.userChoice(150);
-			m1.setParticipants(numOfParticipants);
+
 			
 			PrintToConsole.askDistance();
 			distance = UserInput.userChoice(50);
-			m1.setDistance(distance);
+	
 			
 			PrintToConsole.askGender();
 			gender = UserInput.inputChar();
-			m1.setGender(gender);
-			System.out.println(m1.toString());
+
+			MassStart m1 = new MassStart(numOfParticipants, gender, distance);
+			
+			m1.fillArray();
+			m1.printArray();
 			break;
 
 		}
