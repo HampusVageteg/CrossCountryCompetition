@@ -8,7 +8,9 @@ public class Competition {
 	protected char gender;
 	protected int distance;
 	protected int intervals = 5;
-	Person p[] = new Person[participants];
+	Person p[] = new Person[150];
+	protected double timeSheet[][] = new double[150][5];
+	
 	
 	public Competition() {
 		
@@ -22,21 +24,28 @@ public class Competition {
 		
 	}
 	
-	public void fillArray() {
+	public void fillArray(int participants) {
 		
 		
-		for (int i = 0; i < p.length; i++) {
+		for (int i = 0; i < participants; i++) {
 			p[i] = new Person(gender, i);
 		}
 		
 	}
 	
-	public void printArray() {
+	public void printArray(int participants) {
 		
-		for (int i = 0; i < p.length; i++) {
+		for (int i = 0; i < participants; i++) {
 			System.out.println(p[i].toString());
+			
 		}
-		
+	
+	
+	}
+	public void printTimeSheet(int participants){
+		for(int i = 0; i < participants; i++) {
+			System.out.println(timeSheet[i][0]);
+		}
 	}
 	
 	@Override
@@ -75,6 +84,23 @@ public class Competition {
 	public void setIntervals(int intervals) {
 		this.intervals = intervals;
 	}
+
+	public Person getP(int i) {
+		return p[i];
+	}
+
+	public void setP(Person[] p) {
+		this.p = p;
+	}
+
+	public double[][] getTimeSheet() {
+		return timeSheet;
+	}
+
+	public void setTimeSheet(int startnumber, int interval, double test) {
+		this.timeSheet[startnumber][interval] = test;
+	}
+	
 	
 	
 	}

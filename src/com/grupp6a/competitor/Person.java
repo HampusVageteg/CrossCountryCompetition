@@ -8,6 +8,7 @@ public class Person {
 	private int startNum;
 	private int lastResult;
 	private double speed;
+	private double mellantider[] = new double[5];
 
 	Random rand = new Random();
 
@@ -24,18 +25,42 @@ public class Person {
 
 	}
 
-	public double race(int distance, int intervals) {
+	public void race(int distance, int intervals) {
 
-		double distanceBetweenIntervals = (distance * 1000) / intervals;
-
-		double timeToInterval = distanceBetweenIntervals / this.speed;
-
-		return timeToInterval;
+		double distanceBetweenIntervals;
+		double timeToInterval;
+		
+		for(int i = 0; i < intervals; i++) {
+			distanceBetweenIntervals = (distance * 1000) / intervals;
+			timeToInterval = distanceBetweenIntervals / this.speed;
+			mellantider[i] = timeToInterval;
+			randomizeSpeed(this.gender);
+		}
+		
+		
+		
+//		double distanceBetweenIntervals = (distance * 1000) / intervals;
+//
+//		double timeToInterval = distanceBetweenIntervals / this.speed;
+//		
+//		randomizeSpeed(this.gender);
+//		return timeToInterval;
 	}
+	
+	public void randomizeSpeed(char gender) {
+		
+		if (gender == 'M') {
+			this.speed = 5 + rand.nextDouble() * 2;
+		} else {
+			this.speed = 5 + rand.nextDouble();
+		}
+		
+	}
+	
 
 	@Override
 	public String toString() {
-		return "Person speed: " + speed;
+		return "Sekunder till mellantiderna " + mellantider[0] +  " " + mellantider[1] + " " + mellantider[2] + " " + mellantider[3] + " " + mellantider[4];
 	}
 
 	public char getGender() {
