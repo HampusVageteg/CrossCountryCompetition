@@ -1,5 +1,6 @@
 package com.grupp6a.main;
 
+import com.grupp6a.main.ProgramLoop;
 import com.grupp6a.competition.Competition;
 import com.grupp6a.competition.IndividualStart;
 import com.grupp6a.competitor.Person;
@@ -12,14 +13,13 @@ public class Main {
 
 		Competition c1 = new Competition();
 		
-		c1.fillArray();
-		c1.printArray();
+
 		
 		
 		Person p1 = new Person('M', 5);
 		Person p2 = new Person('M', 2);
 		
-		System.out.println("Person 1 " + p1.toString() + "\n" +  "Person 2 " + p2.toString());
+		//System.out.println("Person 1 " + p1.toString() + "\n" +  "Person 2 " + p2.toString());
 	
 		PrintToConsole.welcomeUser();
 		PrintToConsole.startMenu();
@@ -28,7 +28,9 @@ public class Main {
 
 		ProgramLoop.firstBranch(choice);
 		
-		
+		m1.fillArray();
+		m1.printArray();
+
 		
 
 	}
