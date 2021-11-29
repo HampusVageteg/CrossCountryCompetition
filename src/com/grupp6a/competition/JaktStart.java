@@ -1,5 +1,6 @@
 package com.grupp6a.competition;
 
+//Subklass till Competition.
 public class JaktStart extends Competition{
 	
 	public JaktStart() {};

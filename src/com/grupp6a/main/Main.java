@@ -1,6 +1,8 @@
 package com.grupp6a.main;
 
 
+import java.util.Arrays;
+
 import com.grupp6a.competition.Competition;
 import com.grupp6a.competitor.Person;
 import com.grupp6a.userInput.UserInput;
@@ -13,13 +15,9 @@ public class Main {
 		PrintToConsole.welcomeUser();
 		PrintToConsole.startMenu();
 
-		int choice = UserInput.userChoice(3);
-
-		ProgramLoop.firstBranch(choice);
+		ProgramLoop.startMenuCases(UserInput.userChoice(3));
 		
 		
-	
-
 	}
 
 }
