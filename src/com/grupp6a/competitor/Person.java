@@ -1,5 +1,7 @@
 package com.grupp6a.competitor;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Random;
 
 public class Person {
@@ -15,8 +17,8 @@ public class Person {
 	public Person(char gender, int startNum) {
 		super();
 		this.gender = gender;
-		this.startNum = startNum;
-		
+		this.startNum = startNum + 1;
+
 		if (gender == 'M') {
 			this.speed = 5 + rand.nextDouble() * 2;
 		} else {
@@ -29,38 +31,34 @@ public class Person {
 
 		double distanceBetweenIntervals;
 		double timeToInterval;
-		
-		for(int i = 0; i < intervals; i++) {
+		double convertToMin;
+
+		for (int i = 0; i < intervals; i++) {
 			distanceBetweenIntervals = (distance * 1000) / intervals;
 			timeToInterval = distanceBetweenIntervals / this.speed;
-			mellantider[i] = timeToInterval;
+			convertToMin = timeToInterval / 60;
+			mellantider[i] = Math.round(convertToMin * 100.0) / 100.0;
 			randomizeSpeed(this.gender);
+
 		}
-		
-		
-		
-//		double distanceBetweenIntervals = (distance * 1000) / intervals;
-//
-//		double timeToInterval = distanceBetweenIntervals / this.speed;
-//		
-//		randomizeSpeed(this.gender);
-//		return timeToInterval;
+
 	}
-	
+
 	public void randomizeSpeed(char gender) {
-		
+
 		if (gender == 'M') {
 			this.speed = 5 + rand.nextDouble() * 2;
 		} else {
 			this.speed = 5 + rand.nextDouble();
 		}
-		
+
 	}
-	
 
 	@Override
 	public String toString() {
-		return "Sekunder till mellantiderna " + mellantider[0] +  " " + mellantider[1] + " " + mellantider[2] + " " + mellantider[3] + " " + mellantider[4];
+		return "\nStartnumber: " + startNum + "\nMinuter till mellantid\n" + "1. " + mellantider[0] + "\n" + "2. "
+				+ mellantider[1] + "\n" + "3. " + mellantider[2] + "\n" + "4. " + mellantider[3] + "\n" + "5. "
+				+ mellantider[4] + "\n";
 	}
 
 	public char getGender() {
