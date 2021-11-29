@@ -1,5 +1,9 @@
 package com.grupp6a.main;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
+
 import com.grupp6a.competition.IndividualStart;
 import com.grupp6a.competition.MassStart;
 import com.grupp6a.competitor.Person;
@@ -12,13 +16,13 @@ public class ProgramLoop {
 	private static int distance = 0;
 	private static char gender = 'x';
 
-	public static void firstBranch(int choice) {
+	public static void startMenuCases(int choice) {
 
 		switch (choice) {
 		case 1:
 			PrintToConsole.chooseFormat();
 			int choicetwo = UserInput.userChoice(2);
-			test(choicetwo);
+			chooseComp(choicetwo);
 			break;
 		case 2:
 			PrintToConsole.instructions();
@@ -30,7 +34,7 @@ public class ProgramLoop {
 		}
 	}
 
-	public static void test(int choicetwo) {
+	public static void chooseComp(int choicetwo) {
 
 		switch (choicetwo) {
 		case 1:
@@ -50,9 +54,16 @@ public class ProgramLoop {
 
 			for (int i = 0; i < i1.getParticipants(); i++) {
 				i1.getP(i).race(i1.getDistance(), 5);
-				System.out.println(i1.getP(i).toString());
+
 			}
 
+			Arrays.sort(i1.getP(), Comparator.nullsLast(Comparator.naturalOrder()));
+
+			for (int i = 0; i < i1.getParticipants(); i++) {
+				i1.getP(i).setPlacement(i+1);
+				System.out.println(i1.getP(i).tillString());
+				
+			}
 			break;
 
 		case 2:

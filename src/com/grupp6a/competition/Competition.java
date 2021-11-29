@@ -2,14 +2,16 @@ package com.grupp6a.competition;
 
 import com.grupp6a.competitor.Person;
 
+// Huvudklass för de olika tävlingsformaten.
 public class Competition {
 
 	protected int participants;
 	protected char gender;
 	protected int distance;
 	protected int intervals = 5;
-	Person p[] = new Person[150];
+	Person p[] = new Person[150]; // Skapar en objektarray och sätter den til max 150.
 
+	// Default constructor
 	public Competition() {
 
 	}
@@ -22,6 +24,7 @@ public class Competition {
 
 	}
 
+	// Fyller upp objektarrayen med personobjekt, baserat på hur många participants är med.
 	public void fillArray(int participants) {
 
 		for (int i = 0; i < participants; i++) {
@@ -30,6 +33,7 @@ public class Competition {
 
 	}
 
+	// Loopar igenom arrayen och anropar objektets toString metod.
 	public void printArray(int participants) {
 
 		for (int i = 0; i < participants; i++) {
@@ -64,17 +68,11 @@ public class Competition {
 		return distance;
 	}
 
-	public void setDistance(int distance) {
-		this.distance = distance;
-	}
 
 	public int getIntervals() {
 		return intervals;
 	}
 
-	public void setIntervals(int intervals) {
-		this.intervals = intervals;
-	}
 
 	public Person getP(int i) {
 		return p[i];
@@ -82,6 +80,10 @@ public class Competition {
 
 	public void setP(Person[] p) {
 		this.p = p;
+	}
+
+	public Person[] getP() {
+		return p;
 	}
 
 }

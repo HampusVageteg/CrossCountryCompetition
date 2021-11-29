@@ -1,5 +1,6 @@
 package com.grupp6a.competition;
 
+//Subklass till Competition.
 public class MassStart extends Competition {
 
 	public MassStart() {
