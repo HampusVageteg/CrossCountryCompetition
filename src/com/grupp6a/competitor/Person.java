@@ -71,8 +71,8 @@ public class Person implements Comparable<Person> {
 
 	public String tillString() {
 
-		return placement + "\t" + startNum + "\t" + mellantider[0] + "\t" + mellantider[1] + "\t" + mellantider[2]
-				+ "\t" + mellantider[3] + "\t" + mellantider[4];
+		return placement + "\t" +"\t"  + startNum + "\t"+"\t"  + mellantider[0] + "\t"+"\t"  + mellantider[1] + "\t"+"\t"  + mellantider[2]
+				+ "\t"+"\t"  + mellantider[3] + "\t"+"\t"  + mellantider[4];
 
 	}
 

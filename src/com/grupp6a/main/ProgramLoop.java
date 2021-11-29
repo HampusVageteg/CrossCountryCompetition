@@ -58,7 +58,7 @@ public class ProgramLoop {
 			}
 
 			Arrays.sort(i1.getP(), Comparator.nullsLast(Comparator.naturalOrder()));
-
+			System.out.println("Placering" +"\t"+ "Startnummer" + "\t" + "Mellantid 1" + "\t" + "Mellantid 2" + "\t" + "Mellantid 3" + "\t" + "Mellantid 4" + "\t"+ "Målgång");
 			for (int i = 0; i < i1.getParticipants(); i++) {
 				i1.getP(i).setPlacement(i+1);
 				System.out.println(i1.getP(i).tillString());
