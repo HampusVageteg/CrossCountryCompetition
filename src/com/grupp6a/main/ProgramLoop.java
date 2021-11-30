@@ -19,17 +19,18 @@ public class ProgramLoop {
 	private char gender = 'x';
 	private IndividualStart i1;
 	private MassStart m1;
-	
+	private PrintToConsole ptc = new PrintToConsole();
+	private UserInput ui = new UserInput();
 	
 	public void startMenuCases(int userInput) {
 
 		switch (userInput) {
 		case 1:
-			PrintToConsole.chooseFormat();
-			chooseFormat(UserInput.userChoice(2));
+			ptc.chooseFormat();
+			chooseFormat(ui.userChoice(2));
 			break;
 		case 2:
-			PrintToConsole.instructions();
+			ptc.instructions();
 			break;
 		case 3:
 			System.exit(0);
@@ -44,14 +45,14 @@ public class ProgramLoop {
 		case 1:
 			// Individuell tävling
 
-			PrintToConsole.askParticipants();
-			numOfParticipants = UserInput.userChoice(150);
+			ptc.askParticipants();
+			numOfParticipants = ui.userChoice(150);
 
-			PrintToConsole.askDistance();
-			distance = UserInput.userChoice(50);
+			ptc.askDistance();
+			distance = ui.userChoice(50);
 
-			PrintToConsole.askGender();
-			gender = UserInput.inputChar();
+			ptc.askGender();
+			gender = ui.inputChar();
 
 			i1 = new IndividualStart(numOfParticipants, gender, distance);
 			i1.fillArray(i1.getParticipants());
@@ -61,21 +62,21 @@ public class ProgramLoop {
 
 			}
 
-			PrintToConsole.resultMenu();
-			showResult(UserInput.userChoice(4));
+			ptc.resultMenu();
+			showResult(ui.userChoice(4));
 			break;
 
 		case 2:
 			// MassStart tävling
 
-			PrintToConsole.askParticipants();
-			numOfParticipants = UserInput.userChoice(150);
+			ptc.askParticipants();
+			numOfParticipants = ui.userChoice(150);
 
-			PrintToConsole.askDistance();
-			distance = UserInput.userChoice(50);
+			ptc.askDistance();
+			distance = ui.userChoice(50);
 
-			PrintToConsole.askGender();
-			gender = UserInput.inputChar();
+			ptc.askGender();
+			gender = ui.inputChar();
 
 			m1 = new MassStart(numOfParticipants, gender, distance);
 

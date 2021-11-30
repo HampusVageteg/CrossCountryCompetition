@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 import com.grupp6a.userinterface.PrintToConsole;
 
+
 public class UserInput {
 
 	static Scanner scan = new Scanner(System.in);
-
-	public static int userChoice(int limit) {
+	private PrintToConsole ptc;
+	
+	public int userChoice(int limit) {
 
 		boolean validInput = false;
 		int input = 0;
@@ -20,10 +22,11 @@ public class UserInput {
 				if (input > 0 && input <= limit) {
 					validInput = true;
 				} else {
-					PrintToConsole.invalidInput();
+					ptc.invalidInput();
+					
 				}
 			} catch (InputMismatchException ex) {
-				PrintToConsole.invalidInput();
+				ptc.invalidInput();
 				scan.nextLine();
 			}
 
@@ -34,7 +37,7 @@ public class UserInput {
 
 	}
 
-	public static char inputChar() {
+	public char inputChar() {
 
 		String choice = "M";
 		boolean validInput = false;
@@ -46,11 +49,11 @@ public class UserInput {
 				if (choice.equals("M") || choice.equals("F")) {
 					validInput = true;
 				}else {
-					PrintToConsole.invalidInput();
+					ptc.invalidInput();
 				}
 
 			} catch (StringIndexOutOfBoundsException ex) {
-				PrintToConsole.invalidInput();
+				ptc.invalidInput();
 				scan.nextLine();
 			}
 		} while (!validInput);

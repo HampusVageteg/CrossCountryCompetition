@@ -1,14 +1,16 @@
 package com.grupp6a.userinterface;
 
 public class PrintToConsole {
+	
+	public PrintToConsole() {};
 
-	public static void welcomeUser() {
+	public  void welcomeUser() {
 
 		System.out.println("Welcome to the cross-country competition 2000!");
 		System.out.println("----------------------------------------------");
 	}
 
-	public static void startMenu() {
+	public  void startMenu() {
 
 		System.out.println("Choose one of the following options: ");
 
@@ -18,7 +20,7 @@ public class PrintToConsole {
 
 	}
 
-	public static void startMenu2() {
+	public  void startMenu2() {
 
 		System.out.println("Choose one of the following options: ");
 
@@ -29,7 +31,7 @@ public class PrintToConsole {
 
 	}
 
-	public static void chooseFormat() {
+	public  void chooseFormat() {
 
 		System.out.println("---------------------");
 		System.out.println("1. Individual start");
@@ -37,7 +39,7 @@ public class PrintToConsole {
 
 	}
 
-	public static void chooseFormat2() {
+	public  void chooseFormat2() {
 
 		System.out.println("---------------------");
 		System.out.println("1. Individual start");
@@ -46,41 +48,41 @@ public class PrintToConsole {
 
 	}
 	
-	public static void instructions() {
+	public  void instructions() {
 		
 		System.out.println("---------------------\n");
 		System.out.println("test");
 		
 	}
 	
-	public static void askParticipants() {
+	public  void askParticipants() {
 		
 		System.out.println("---------------------\n");
 		System.out.println("How many participants? \nMax amount is 150");
 		
 	}
 	
-	public static void askDistance() {
+	public  void askDistance() {
 		
 		System.out.println("---------------------\n");
 		System.out.println("How long race distance? \nAnswer in km, max 50km");
 	}
 	
-	public static void askGender() {
+	public  void askGender() {
 		
 		System.out.println("---------------------\n");
 		System.out.println("Enter gender m/f?");
 	}
 
-	public static void invalidInput() {
+	public  void invalidInput() {
 
 		System.out.println("---------------------");
 		System.out.println("Invalid input, please try again!");
 	}
-	public static void resultFormat() {
+	public  void resultFormat() {
 		System.out.println("Placering" +"\t"+ "Startnummer" + "\t" + "Mellantid 1" + "\t" + "Mellantid 2" + "\t" + "Mellantid 3" + "\t" + "Mellantid 4" + "\t"+ "Målgång");
 	}
-	public static void resultMenu() {
+	public  void resultMenu() {
 		
 		System.out.println("---------------------");
 		System.out.println("Choose one of the following options: ");
