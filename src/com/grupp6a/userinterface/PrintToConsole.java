@@ -81,12 +81,15 @@ public class PrintToConsole {
 		System.out.println("Placering" +"\t"+ "Startnummer" + "\t" + "Mellantid 1" + "\t" + "Mellantid 2" + "\t" + "Mellantid 3" + "\t" + "Mellantid 4" + "\t"+ "Målgång");
 	}
 	public static void resultMenu() {
+		
+		System.out.println("---------------------");
 		System.out.println("Choose one of the following options: ");
 
 		System.out.println("1. View result");
 		System.out.println("2. Check standings at interval");
 		System.out.println("3. Analyze contestent");
 		System.out.println("4. Start new competition");
+	
 	}
 
 }

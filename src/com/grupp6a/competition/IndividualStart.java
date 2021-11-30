@@ -9,6 +9,7 @@ import com.grupp6a.userinterface.PrintToConsole;
 public class IndividualStart extends Competition {
 
 	public IndividualStart() {
+		super();
 
 	}
 
