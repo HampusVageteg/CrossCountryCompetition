@@ -4,11 +4,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 
+
 import com.grupp6a.competition.IndividualStart;
 import com.grupp6a.competition.MassStart;
 import com.grupp6a.competitor.Person;
 import com.grupp6a.userInput.UserInput;
 import com.grupp6a.userinterface.PrintToConsole;
+
 
 public class ProgramLoop {
 
@@ -83,7 +85,21 @@ public class ProgramLoop {
 			break;
 
 		}
+		
+		
+		
 
+	}
+	public static void showResult(int a) {
+		switch(a) {
+		
+		case 1:
+			
+		case 2:
+		case 3:
+		case 4:
+		
+		}
 	}
 
 }
