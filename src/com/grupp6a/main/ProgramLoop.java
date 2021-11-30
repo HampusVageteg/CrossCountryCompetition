@@ -14,17 +14,19 @@ import com.grupp6a.userinterface.PrintToConsole;
 
 public class ProgramLoop {
 
-	private static int numOfParticipants = 0;
-	private static int distance = 0;
-	private static char gender = 'x';
+	private int numOfParticipants = 0;
+	private int distance = 0;
+	private char gender = 'x';
+	private IndividualStart i1;
+	private MassStart m1;
+	
+	
+	public void startMenuCases(int userInput) {
 
-	public static void startMenuCases(int choice) {
-
-		switch (choice) {
+		switch (userInput) {
 		case 1:
 			PrintToConsole.chooseFormat();
-			int choicetwo = UserInput.userChoice(2);
-			chooseComp(choicetwo);
+			chooseFormat(UserInput.userChoice(2));
 			break;
 		case 2:
 			PrintToConsole.instructions();
@@ -36,9 +38,9 @@ public class ProgramLoop {
 		}
 	}
 
-	public static void chooseComp(int choicetwo) {
+	public void chooseFormat(int userInput) {
 
-		switch (choicetwo) {
+		switch (userInput) {
 		case 1:
 			// Individuell tävling
 
@@ -51,7 +53,7 @@ public class ProgramLoop {
 			PrintToConsole.askGender();
 			gender = UserInput.inputChar();
 
-			IndividualStart i1 = new IndividualStart(numOfParticipants, gender, distance);
+			i1 = new IndividualStart(numOfParticipants, gender, distance);
 			i1.fillArray(i1.getParticipants());
 
 			for (int i = 0; i < i1.getParticipants(); i++) {
@@ -60,6 +62,7 @@ public class ProgramLoop {
 			}
 
 			PrintToConsole.resultMenu();
+			showResult(UserInput.userChoice(4));
 			break;
 
 		case 2:
@@ -74,7 +77,7 @@ public class ProgramLoop {
 			PrintToConsole.askGender();
 			gender = UserInput.inputChar();
 
-			MassStart m1 = new MassStart(numOfParticipants, gender, distance);
+			m1 = new MassStart(numOfParticipants, gender, distance);
 
 			m1.fillArray(m1.getParticipants());
 
@@ -90,14 +93,21 @@ public class ProgramLoop {
 		
 
 	}
-	public static void showResult(int a) {
+	public void showResult(int a) {
 		switch(a) {
 		
 		case 1:
-			
+			i1.finalresult();
+			break;
 		case 2:
+			
+			break;
 		case 3:
+			
+			break;
 		case 4:
+			
+			break;
 		
 		}
 	}
