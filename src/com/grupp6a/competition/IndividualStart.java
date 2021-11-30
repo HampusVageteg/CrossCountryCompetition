@@ -9,6 +9,7 @@ import com.grupp6a.userinterface.PrintToConsole;
 
 public class IndividualStart extends Competition {
 	
+	private PrintToConsole ptc = new PrintToConsole();
 	public IndividualStart() {
 		super();
 
@@ -24,7 +25,7 @@ public class IndividualStart extends Competition {
 	
 	public void finalresult() {
 		Arrays.sort(IndividualStart.super.getP(), Comparator.nullsLast(Comparator.naturalOrder()));
-		PrintToConsole.resultFormat();
+		ptc.resultFormat();
 		for (int i = 0; i < IndividualStart.super.getParticipants(); i++) {
 			IndividualStart.super.getP(i).setPlacement(i+1);
 			System.out.println(IndividualStart.super.getP(i).tillString());

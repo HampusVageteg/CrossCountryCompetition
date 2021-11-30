@@ -14,14 +14,15 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-		// IndividualStart i1= new IndividualStart();
-
-		PrintToConsole.welcomeUser();
-		PrintToConsole.startMenu();
+		PrintToConsole ptc = new PrintToConsole();
+		UserInput ui = new UserInput();
+		ptc.welcomeUser();
+		ptc.startMenu();
 		ProgramLoop pL = new ProgramLoop();
 
 //		ProgramLoop.startMenuCases(UserInput.userChoice(3));
-		pL.startMenuCases(UserInput.userChoice(3));
+		
+		pL.startMenuCases(ui.userChoice(3));
 		
 	}
 
