@@ -87,7 +87,7 @@ public class PrintToConsole {
 
 		System.out.println("1. View result");
 		System.out.println("2. Check standings at interval");
-		System.out.println("3. Analyze contestent");
+		System.out.println("3. Analyze contestant");
 		System.out.println("4. Start new competition");
 	
 	}
