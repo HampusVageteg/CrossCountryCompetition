@@ -12,10 +12,10 @@ public class Person implements Comparable<Person> {
 	private int lastResult;
 	private double speed;
 	private double mellantider[] = new double[5];
+	private String res[] = new String[5];
 	private int placement;
 
 	Random rand = new Random();
-
 	
 	public Person(char gender, int startNum) {
 		super();
@@ -75,6 +75,11 @@ public class Person implements Comparable<Person> {
 				+ "\t"+"\t"  + mellantider[3] + "\t"+"\t"  + mellantider[4];
 
 	}
+	
+	public String tillStringTwo() {
+		return placement + "\t" +"\t"  + startNum + "\t"+"\t"  + res[0] + "\t"+"\t"  + res[1] + "\t"+"\t"  + res[2]
+				+ "\t"+"\t"  + res[3] + "\t"+"\t"  + res[4];
+	}
 
 	public char getGender() {
 		return gender;
@@ -115,6 +120,26 @@ public class Person implements Comparable<Person> {
 
 	public void setPlacement(int placement) {
 		this.placement = placement;
+	}
+	
+	
+
+	public double getMellantider(int i) {
+		return mellantider[i];
+	}
+
+	public void setMellantider(double[] mellantider) {
+		this.mellantider = mellantider;
+	}
+	
+	
+
+	public String[] getRes() {
+		return res;
+	}
+
+	public void setRes(int i, String x) {
+		this.res[i] = x;
 	}
 
 	// Skapar en metod för att jämföra totaltid.

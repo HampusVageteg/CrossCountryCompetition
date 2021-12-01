@@ -9,6 +9,7 @@ public class Competition {
 	protected char gender;
 	protected int distance;
 	protected int intervals = 5;
+	
 	Person p[] = new Person[150]; // Skapar en objektarray och sätter den til max 150.
 
 	// Default constructor

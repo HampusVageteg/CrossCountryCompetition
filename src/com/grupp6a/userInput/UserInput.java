@@ -9,7 +9,7 @@ import com.grupp6a.userinterface.PrintToConsole;
 public class UserInput {
 
 	static Scanner scan = new Scanner(System.in);
-	private PrintToConsole ptc;
+	private PrintToConsole ptc = new PrintToConsole();
 	
 	public int userChoice(int limit) {
 
