@@ -80,7 +80,7 @@ public class PrintToConsole {
 		System.out.println("Invalid input, please try again!");
 	}
 	public  void resultFormat() {
-		System.out.println("Placering" +"\t"+ "Startnummer" + "\t" + "Mellantid 1" + "\t" + "Mellantid 2" + "\t" + "Mellantid 3" + "\t" + "Mellantid 4" + "\t"+ "Målgång");
+		System.out.println("Placering" +"\t"+ "Startnummer" + "\t" + "Mellantid 1" + "\t"+"\t" + "Mellantid 2" + "\t"+"\t" + "Mellantid 3" + "\t"+"\t" + "Mellantid 4" + "\t"+"\t"+ "Målgång");
 	}
 	public  void resultMenu() {
 		
