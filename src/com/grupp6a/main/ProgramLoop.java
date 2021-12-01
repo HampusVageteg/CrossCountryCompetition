@@ -4,13 +4,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 
-
+import com.grupp6a.competition.Competition;
 import com.grupp6a.competition.IndividualStart;
 import com.grupp6a.competition.MassStart;
 import com.grupp6a.competitor.Person;
 import com.grupp6a.userInput.UserInput;
 import com.grupp6a.userinterface.PrintToConsole;
-
 
 public class ProgramLoop {
 
@@ -21,7 +20,7 @@ public class ProgramLoop {
 	private MassStart m1;
 	private PrintToConsole ptc = new PrintToConsole();
 	private UserInput ui = new UserInput();
-	
+
 	public void startMenuCases(int userInput) {
 
 		switch (userInput) {
@@ -89,28 +88,55 @@ public class ProgramLoop {
 			break;
 
 		}
-		
-		
-		
 
 	}
+
+	// Kom ihåg att ornda så även masstart samt jakt går att visa.
 	public void showResult(int a) {
-		switch(a) {
-		
+		switch (a) {
+
 		case 1:
 			i1.finalresult();
 			break;
 		case 2:
-			
+			ptc.intervalMenu();
+			checkStandings(ui.userChoice(5));
 			break;
 		case 3:
-			
+
 			break;
 		case 4:
-			
+
 			break;
-		
+
 		}
+	}
+
+	// Meny
+	public void checkStandings(int b) {
+		switch (b) {
+
+		case 1:
+			// SORTERA INTERVAL 1
+			break;
+		case 2:
+			// SORTERA INTERVAL 2
+			break;
+
+		case 3:
+			// SORTERA INTERVAL 3
+			break;
+
+		case 4:
+			// SORTERA INTERVAL 4
+			break;
+
+		case 5:
+			ptc.resultMenu();
+			showResult(ui.userChoice(4));
+			break;
+		}
+
 	}
 
 }

@@ -9,7 +9,7 @@ public class Competition {
 	protected char gender;
 	protected int distance;
 	protected int intervals = 5;
-	
+
 	Person p[] = new Person[150]; // Skapar en objektarray och sätter den til max 150.
 
 	// Default constructor
@@ -25,7 +25,8 @@ public class Competition {
 
 	}
 
-	// Fyller upp objektarrayen med personobjekt, baserat på hur många participants är med.
+	// Fyller upp objektarrayen med personobjekt, baserat på hur många participants
+	// är med.
 	public void fillArray(int participants) {
 
 		for (int i = 0; i < participants; i++) {
@@ -34,21 +35,7 @@ public class Competition {
 
 	}
 
-	// Loopar igenom arrayen och anropar objektets toString metod.
-	public void printArray(int participants) {
-
-		for (int i = 0; i < participants; i++) {
-			System.out.println(p[i].toString());
-
-		}
-
-	}
-
-	@Override
-	public String toString() {
-		return "Competition \nParticipants: " + participants + "\nGender: " + gender + "\nDistance: " + distance + "km";
-	}
-
+	
 	public int getParticipants() {
 		return participants;
 	}
@@ -69,11 +56,9 @@ public class Competition {
 		return distance;
 	}
 
-
 	public int getIntervals() {
 		return intervals;
 	}
-
 
 	public Person getP(int i) {
 		return p[i];
