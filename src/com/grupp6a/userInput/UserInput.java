@@ -5,12 +5,11 @@ import java.util.Scanner;
 
 import com.grupp6a.userinterface.PrintToConsole;
 
-
 public class UserInput {
 
 	static Scanner scan = new Scanner(System.in);
 	private PrintToConsole ptc = new PrintToConsole();
-	
+
 	public int userChoice(int limit) {
 
 		boolean validInput = false;
@@ -23,7 +22,7 @@ public class UserInput {
 					validInput = true;
 				} else {
 					ptc.invalidInput();
-					
+
 				}
 			} catch (InputMismatchException ex) {
 				ptc.invalidInput();
@@ -48,7 +47,7 @@ public class UserInput {
 
 				if (choice.equals("M") || choice.equals("F")) {
 					validInput = true;
-				}else {
+				} else {
 					ptc.invalidInput();
 				}
 

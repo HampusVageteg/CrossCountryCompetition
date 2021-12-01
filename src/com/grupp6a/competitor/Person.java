@@ -2,6 +2,7 @@ package com.grupp6a.competitor;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Comparator;
 import java.util.Random;
 
 // Huvudklass för deltagare.
@@ -16,7 +17,7 @@ public class Person implements Comparable<Person> {
 	private int placement;
 
 	Random rand = new Random();
-	
+
 	public Person(char gender, int startNum) {
 		super();
 		this.gender = gender;
@@ -31,14 +32,16 @@ public class Person implements Comparable<Person> {
 
 	}
 
-	// Metod för att simulera ett race. Tar in angiven distans och antal intervaller.
+	// Metod för att simulera ett race. Tar in angiven distans och antal
+	// intervaller.
 	public void race(int distance, int intervals) {
 
 		double distanceBetweenIntervals;
 		double timeToInterval = 0;
 
 		// Räknar ut avstånden mellan intervallerna.
-		// Räknar därefter ut tiden det tar att åka mellan intervallerna, baserat på den slumpade hastigheten.
+		// Räknar därefter ut tiden det tar att åka mellan intervallerna, baserat på den
+		// slumpade hastigheten.
 		// Tiden lagras i en array.
 		// Hastigheten slumpas efter varje ny mellantid.
 		for (int i = 0; i < intervals; i++) {
@@ -62,23 +65,10 @@ public class Person implements Comparable<Person> {
 
 	}
 
-	@Override
+
 	public String toString() {
-		return "\nStartnumber: " + startNum + "\nMinuter till mellantid\n" + "1. " + mellantider[0] + "\n" + "2. "
-				+ mellantider[1] + "\n" + "3. " + mellantider[2] + "\n" + "4. " + mellantider[3] + "\n" + "5. "
-				+ mellantider[4] + "\n";
-	}
-
-	public String tillString() {
-
-		return placement + "\t" +"\t"  + startNum + "\t"+"\t"  + mellantider[0] + "\t"+"\t"  + mellantider[1] + "\t"+"\t"  + mellantider[2]
-				+ "\t"+"\t"  + mellantider[3] + "\t"+"\t"  + mellantider[4];
-
-	}
-	
-	public String tillStringTwo() {
-		return placement + "\t" +"\t"  + startNum + "\t"+"\t"  + res[0] + "\t"+"\t"  + res[1] + "\t"+"\t"  + res[2]
-				+ "\t"+"\t"  + res[3] + "\t"+"\t"  + res[4];
+		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[0] + "\t" + "\t" + res[1] + "\t" + "\t" + res[2]
+				+ "\t" + "\t" + res[3] + "\t" + "\t" + res[4];
 	}
 
 	public char getGender() {
@@ -113,7 +103,6 @@ public class Person implements Comparable<Person> {
 		this.speed = speed;
 	}
 
-	
 	public int getPlacement() {
 		return placement;
 	}
@@ -121,8 +110,6 @@ public class Person implements Comparable<Person> {
 	public void setPlacement(int placement) {
 		this.placement = placement;
 	}
-	
-	
 
 	public double getMellantider(int i) {
 		return mellantider[i];
@@ -131,8 +118,6 @@ public class Person implements Comparable<Person> {
 	public void setMellantider(double[] mellantider) {
 		this.mellantider = mellantider;
 	}
-	
-	
 
 	public String[] getRes() {
 		return res;
