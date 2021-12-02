@@ -87,6 +87,12 @@ public class PrintToConsole {
 		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid 1" + "\t" + "\t" + "Mellantid 2"
 				+ "\t" + "\t" + "Mellantid 3" + "\t" + "\t" + "Mellantid 4" + "\t" + "\t" + "Målgång");
 	}
+	
+	public void analyzeFormat() {
+		System.out.println("---------------------");
+		System.out.println("Mellantid 1" + "\t" + "\t" + "Mellantid 2"
+				+ "\t" + "\t" + "Mellantid 3" + "\t" + "\t" + "Mellantid 4" + "\t" + "\t" + "Målgång");
+	}
 
 	public void resultFormat(int i) {
 		int u = i + 1;
@@ -119,7 +125,9 @@ public class PrintToConsole {
 	}
 	
 	public void print(String x) {
+		System.out.print(x);
+	}
+	public void println(String x) {
 		System.out.println(x);
 	}
-
 }

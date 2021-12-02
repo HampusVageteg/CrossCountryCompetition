@@ -126,8 +126,8 @@ public class Person implements Comparable<Person> {
 		this.mellantider = mellantider;
 	}
 
-	public String[] getRes() {
-		return res;
+	public String getRes(int i) {
+		return res[i];
 	}
 
 	public void setRes(int i, String x) {
