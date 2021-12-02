@@ -11,7 +11,6 @@ import com.grupp6a.userinterface.PrintToConsole;
 public class IndividualStart extends Competition {
 
 	private PrintToConsole ptc = new PrintToConsole();
-//	private SortByInterval sbi = new SortByInterval();
 
 	public IndividualStart() {
 		super();
@@ -26,33 +25,15 @@ public class IndividualStart extends Competition {
 		this.p = new Person[participants];
 	}
 
-//	public class SortByInterval implements Comparator<Person> {
-//		@Override
-//		public int compare(Person p1, Person p2) {
-//			int i;
-//			if (p1.getMellantider(0) == p2.getMellantider(0)) {
-//				i = 0;
-//			} else if (p1.getMellantider(0) > p2.getMellantider(0)) {
-//				i = 1;
-//			} else {
-//				i = -1;
-//			}
-//
-//			return i;
-//
-//		}
-//		
-//
-//	}
 
 	public void intervalOne(int u) {
 		Arrays.sort(IndividualStart.super.getP(), Comparator.comparing(p -> p.getMellantider(u)));
 
-		ptc.resultFormat();
+		ptc.resultFormat(u);
 		for (int i = 0; i < IndividualStart.super.getParticipants(); i++) {
 			IndividualStart.super.getP(i).setPlacement(i + 1);
 			convert();
-			System.out.println(IndividualStart.super.getP(i).toString());
+			System.out.println(IndividualStart.super.getP(i).toString(u));
 
 		}
 	}
