@@ -3,7 +3,6 @@ package com.grupp6a.competition;
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Comparator;
-
 import com.grupp6a.competitor.Person;
 import com.grupp6a.userinterface.PrintToConsole;
 
@@ -12,6 +11,7 @@ import com.grupp6a.userinterface.PrintToConsole;
 public class IndividualStart extends Competition {
 
 	private PrintToConsole ptc = new PrintToConsole();
+//	private SortByInterval sbi = new SortByInterval();
 
 	public IndividualStart() {
 		super();
@@ -23,11 +23,43 @@ public class IndividualStart extends Competition {
 		this.participants = participants;
 		this.gender = gender;
 		this.distance = distance;
+		this.p = new Person[participants];
+	}
+
+//	public class SortByInterval implements Comparator<Person> {
+//		@Override
+//		public int compare(Person p1, Person p2) {
+//			int i;
+//			if (p1.getMellantider(0) == p2.getMellantider(0)) {
+//				i = 0;
+//			} else if (p1.getMellantider(0) > p2.getMellantider(0)) {
+//				i = 1;
+//			} else {
+//				i = -1;
+//			}
+//
+//			return i;
+//
+//		}
+//		
+//
+//	}
+
+	public void intervalOne(int u) {
+		Arrays.sort(IndividualStart.super.getP(), Comparator.comparing(p -> p.getMellantider(u)));
+
+		ptc.resultFormat();
+		for (int i = 0; i < IndividualStart.super.getParticipants(); i++) {
+			IndividualStart.super.getP(i).setPlacement(i + 1);
+			convert();
+			System.out.println(IndividualStart.super.getP(i).toString());
+
+		}
 	}
 
 	// Metod som sorterar tid för målgång och skriver ut "tillstring" metoden.
 	public void finalresult() {
-		Arrays.sort(IndividualStart.super.getP(), Comparator.nullsLast(Comparator.naturalOrder()));
+		Arrays.sort(IndividualStart.super.getP());
 		ptc.resultFormat();
 		for (int i = 0; i < IndividualStart.super.getParticipants(); i++) {
 			IndividualStart.super.getP(i).setPlacement(i + 1);

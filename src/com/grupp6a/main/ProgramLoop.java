@@ -6,8 +6,10 @@ import java.util.Iterator;
 
 import com.grupp6a.competition.Competition;
 import com.grupp6a.competition.IndividualStart;
+
 import com.grupp6a.competition.MassStart;
 import com.grupp6a.competitor.Person;
+
 import com.grupp6a.userInput.UserInput;
 import com.grupp6a.userinterface.PrintToConsole;
 
@@ -20,6 +22,7 @@ public class ProgramLoop {
 	private MassStart m1;
 	private PrintToConsole ptc = new PrintToConsole();
 	private UserInput ui = new UserInput();
+	
 
 	public void startMenuCases(int userInput) {
 
@@ -117,18 +120,18 @@ public class ProgramLoop {
 		switch (b) {
 
 		case 1:
-			// SORTERA INTERVAL 1
+			i1.intervalOne(0);
 			break;
 		case 2:
-			// SORTERA INTERVAL 2
+			i1.intervalOne(1);
 			break;
 
 		case 3:
-			// SORTERA INTERVAL 3
+			i1.intervalOne(2);
 			break;
 
 		case 4:
-			// SORTERA INTERVAL 4
+			i1.intervalOne(3);
 			break;
 
 		case 5:

@@ -9,8 +9,8 @@ public class Competition {
 	protected char gender;
 	protected int distance;
 	protected int intervals = 5;
-
-	Person p[] = new Person[150]; // Skapar en objektarray och sätter den til max 150.
+	Person[] p;
+	
 
 	// Default constructor
 	public Competition() {
@@ -22,7 +22,7 @@ public class Competition {
 		this.participants = participants;
 		this.gender = gender;
 		this.distance = distance;
-
+		
 	}
 
 	// Fyller upp objektarrayen med personobjekt, baserat på hur många participants
@@ -34,6 +34,7 @@ public class Competition {
 		}
 
 	}
+	
 
 	
 	public int getParticipants() {
