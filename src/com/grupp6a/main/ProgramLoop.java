@@ -128,7 +128,9 @@ public class ProgramLoop {
 			checkStandingsM(ui.userChoice(5));
 			break;
 		case 3:
-            ptc.print(m1.toString());
+            ptc.println(m1.toString());
+            m1.analyze(10);
+            m1.compareToLeader(10);
 			break;
 		case 4:
 

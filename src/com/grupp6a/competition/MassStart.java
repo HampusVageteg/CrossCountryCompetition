@@ -23,8 +23,29 @@ public class MassStart extends Competition {
 		this.p = new Person[participants];
 
 	}
-
+	// int i = deltagare att jämföra
+	public void analyze(int i) {
+		ptc.analyzeFormat();
+		convert();
+		for (int j = 0; j < 5; j++) {
+			ptc.print("" + MassStart.super.getP(i).getRes(j)+ "\t" + "\t" );
+		}
+	}
+	// Vill sortera arrayen baserat på mellantiden k, sen ta vår tävlandes tid minus ledarens tid för att se hur långt efter ha
+	public void compareToLeader(int i) {
+		
+		for(int k = 0; k < 5; k++) {
+			Arrays.sort(MassStart.super.getP(), Comparator.comparing(p -> p.getMellantider(1)));
+		}
+		for ( int j= 0; j < 5; j++) {
+			double test = (MassStart.super.getP(i).getMellantider(j) - MassStart.super.getP(0).getMellantider(j));
+			ptc.println(test + "\t" + "\t"+ "\t");
+		}
+	}
+	
+	
 	public void intervalOne(int u) {
+
 		Arrays.sort(MassStart.super.getP(), Comparator.comparing(p -> p.getMellantider(u)));
 
 		ptc.resultFormat(u);
@@ -67,13 +88,12 @@ public class MassStart extends Competition {
 			}
 
 		}
-		
 
 	}
 
 	@Override
 	public String toString() {
-		
+
 		return "Please select a number between 1 - " + participants + ":";
 	}
 
