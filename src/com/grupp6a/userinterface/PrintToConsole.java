@@ -1,8 +1,9 @@
 package com.grupp6a.userinterface;
 
 public class PrintToConsole {
-	
-	public PrintToConsole() {};
+
+	public PrintToConsole() {
+	};
 
 	public void welcomeUser() {
 
@@ -47,29 +48,29 @@ public class PrintToConsole {
 		System.out.println("3. Pursuit start");
 
 	}
-	
+
 	public void instructions() {
-		
+
 		System.out.println("---------------------\n");
 		System.out.println("test");
-		
+
 	}
-	
+
 	public void askParticipants() {
-		
+
 		System.out.println("---------------------\n");
 		System.out.println("How many participants? \nMax amount is 150");
-		
+
 	}
-	
+
 	public void askDistance() {
-		
+
 		System.out.println("---------------------\n");
 		System.out.println("How long race distance? \nAnswer in km, max 50km");
 	}
-	
+
 	public void askGender() {
-		
+
 		System.out.println("---------------------\n");
 		System.out.println("Enter gender m/f?");
 	}
@@ -79,13 +80,22 @@ public class PrintToConsole {
 		System.out.println("---------------------");
 		System.out.println("Invalid input, please try again!");
 	}
+
 	public void resultFormat() {
-		
+
 		System.out.println("---------------------");
-		System.out.println("Placering" +"\t"+ "Startnummer" + "\t" + "Mellantid 1" + "\t"+"\t" + "Mellantid 2" + "\t"+"\t" + "Mellantid 3" + "\t"+"\t" + "Mellantid 4" + "\t"+"\t"+ "Målgång");
+		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid 1" + "\t" + "\t" + "Mellantid 2"
+				+ "\t" + "\t" + "Mellantid 3" + "\t" + "\t" + "Mellantid 4" + "\t" + "\t" + "Målgång");
 	}
+
+	public void resultFormat(int i) {
+		int u = i + 1;
+		System.out.println("---------------------");
+		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid " + u);
+	}
+
 	public void resultMenu() {
-		
+
 		System.out.println("---------------------");
 		System.out.println("Choose one of the following options: ");
 
@@ -93,11 +103,11 @@ public class PrintToConsole {
 		System.out.println("2. Check standings at interval");
 		System.out.println("3. Analyze contestant");
 		System.out.println("4. Start new competition");
-	
+
 	}
-	
+
 	public void intervalMenu() {
-		
+
 		System.out.println("---------------------");
 		System.out.println("Choose one of the following intervals: ");
 		System.out.println("1. Interval 1");
@@ -105,7 +115,11 @@ public class PrintToConsole {
 		System.out.println("3. Interval 3");
 		System.out.println("4. Interval 4");
 		System.out.println("5. Previous menu");
-		
+
+	}
+	
+	public void print(String x) {
+		System.out.println(x);
 	}
 
 }

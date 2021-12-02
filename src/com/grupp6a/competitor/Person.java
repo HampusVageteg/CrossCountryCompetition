@@ -70,6 +70,13 @@ public class Person implements Comparable<Person> {
 		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[0] + "\t" + "\t" + res[1] + "\t" + "\t" + res[2]
 				+ "\t" + "\t" + res[3] + "\t" + "\t" + res[4];
 	}
+	
+	public String toString(int i) {
+		
+
+		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[i];
+
+	}
 
 	public char getGender() {
 		return gender;

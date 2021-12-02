@@ -22,7 +22,6 @@ public class ProgramLoop {
 	private MassStart m1;
 	private PrintToConsole ptc = new PrintToConsole();
 	private UserInput ui = new UserInput();
-	
 
 	public void startMenuCases(int userInput) {
 
@@ -65,7 +64,7 @@ public class ProgramLoop {
 			}
 
 			ptc.resultMenu();
-			showResult(ui.userChoice(4));
+			showResultI(ui.userChoice(4));
 			break;
 
 		case 2:
@@ -81,21 +80,23 @@ public class ProgramLoop {
 			gender = ui.inputChar();
 
 			m1 = new MassStart(numOfParticipants, gender, distance);
-
 			m1.fillArray(m1.getParticipants());
 
 			for (int i = 0; i < m1.getParticipants(); i++) {
 				m1.getP(i).race(m1.getDistance(), 5);
-				System.out.println(m1.getP(i).toString());
+
 			}
+
+			ptc.resultMenu();
+			showResultM(ui.userChoice(4));
 			break;
 
 		}
 
 	}
 
-	// Kom ihåg att ornda så även masstart samt jakt går att visa.
-	public void showResult(int a) {
+	// Kom ihåg att ordna så även masstart samt jakt går att visa.
+	public void showResultI(int a) {
 		switch (a) {
 
 		case 1:
@@ -103,9 +104,10 @@ public class ProgramLoop {
 			break;
 		case 2:
 			ptc.intervalMenu();
-			checkStandings(ui.userChoice(5));
+			checkStandingsI(ui.userChoice(5));
 			break;
 		case 3:
+			
 
 			break;
 		case 4:
@@ -115,8 +117,28 @@ public class ProgramLoop {
 		}
 	}
 
+	public void showResultM(int a) {
+		switch (a) {
+
+		case 1:
+			m1.finalresult();
+			break;
+		case 2:
+			ptc.intervalMenu();
+			checkStandingsM(ui.userChoice(5));
+			break;
+		case 3:
+            ptc.print(m1.toString());
+			break;
+		case 4:
+
+			break;
+
+		}
+	}
+
 	// Meny
-	public void checkStandings(int b) {
+	public void checkStandingsI(int b) {
 		switch (b) {
 
 		case 1:
@@ -136,7 +158,33 @@ public class ProgramLoop {
 
 		case 5:
 			ptc.resultMenu();
-			showResult(ui.userChoice(4));
+			showResultI(ui.userChoice(4));
+			break;
+
+		}
+	}
+
+	public void checkStandingsM(int b) {
+		switch (b) {
+
+		case 1:
+			m1.intervalOne(0);
+			break;
+		case 2:
+			m1.intervalOne(1);
+			break;
+
+		case 3:
+			m1.intervalOne(2);
+			break;
+
+		case 4:
+			m1.intervalOne(3);
+			break;
+
+		case 5:
+			ptc.resultMenu();
+			showResultM(ui.userChoice(4));
 			break;
 		}
 
