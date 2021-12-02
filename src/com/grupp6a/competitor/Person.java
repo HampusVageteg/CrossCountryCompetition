@@ -8,7 +8,7 @@ import java.util.Random;
 // Huvudklass för deltagare.
 public class Person implements Comparable<Person> {
 
-	private char gender;
+	private char gender = 'M';
 	private int startNum;
 	private int lastResult;
 	private double speed;
@@ -141,5 +141,6 @@ public class Person implements Comparable<Person> {
 
 		return i;
 	}
-
+	
+	
 }
