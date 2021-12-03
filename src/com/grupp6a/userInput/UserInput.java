@@ -62,4 +62,30 @@ public class UserInput {
 
 	}
 
+	public double userChoiceDouble(int limit) {
+
+		boolean validInput = false;
+		double input = 0;
+
+		do {
+			try {
+				input = scan.nextDouble();
+				if (input > 0 && input < limit) {
+					validInput = true;
+				} else {
+					ptc.invalidInput();
+
+				}
+			} catch (InputMismatchException ex) {
+				ptc.invalidInput();
+				scan.nextLine();
+			}
+
+		} while (!validInput);
+
+		scan.nextLine();
+		return input;
+
+	}
+
 }

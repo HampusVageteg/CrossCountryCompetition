@@ -32,23 +32,6 @@ public class PrintToConsole {
 
 	}
 
-	public void chooseFormat() {
-
-		System.out.println("---------------------");
-		System.out.println("1. Individual start");
-		System.out.println("2. Mass start");
-
-	}
-
-	public void chooseFormat2() {
-
-		System.out.println("---------------------");
-		System.out.println("1. Individual start");
-		System.out.println("2. Mass start");
-		System.out.println("3. Pursuit start");
-
-	}
-
 	public void instructions() {
 
 		System.out.println("---------------------\n");
@@ -75,6 +58,13 @@ public class PrintToConsole {
 		System.out.println("Enter gender m/f?");
 	}
 
+	public void askCoach() {
+
+		System.out.println("---------------------\n");
+		System.out.println("Where is the coach, answer in km:");
+
+	}
+
 	public void invalidInput() {
 
 		System.out.println("---------------------");
@@ -84,14 +74,13 @@ public class PrintToConsole {
 	public void resultFormat() {
 
 		System.out.println("---------------------");
-		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid 1" + "\t" + "\t" + "Mellantid 2"
-				+ "\t" + "\t" + "Mellantid 3" + "\t" + "\t" + "Mellantid 4" + "\t" + "\t" + "Målgång");
+		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid" + "\t" + "\t" + "Målgång");
 	}
-	
+
 	public void analyzeFormat() {
 		System.out.println("---------------------");
-		System.out.println("Mellantid 1" + "\t" + "\t" + "Mellantid 2"
-				+ "\t" + "\t" + "Mellantid 3" + "\t" + "\t" + "Mellantid 4" + "\t" + "\t" + "Målgång");
+		System.out.println("Mellantid 1" + "\t" + "\t" + "Mellantid 2" + "\t" + "\t" + "Mellantid 3" + "\t" + "\t"
+				+ "Mellantid 4" + "\t" + "\t" + "Målgång");
 	}
 
 	public void resultFormat(int i) {
@@ -109,6 +98,7 @@ public class PrintToConsole {
 		System.out.println("2. Check standings at interval");
 		System.out.println("3. Analyze contestant");
 		System.out.println("4. Start new competition");
+		System.out.println("5. Exit program");
 
 	}
 
@@ -117,16 +107,26 @@ public class PrintToConsole {
 		System.out.println("---------------------");
 		System.out.println("Choose one of the following intervals: ");
 		System.out.println("1. Interval 1");
-		System.out.println("2. Interval 2");
-		System.out.println("3. Interval 3");
-		System.out.println("4. Interval 4");
-		System.out.println("5. Previous menu");
+		System.out.println("2. Finish line");
+		System.out.println("3. Previous menu");
 
 	}
 	
+	public void exitProgram() {
+		System.out.println("Closing application!");
+	}
+	
+	public void analyzeMenu() {
+		
+		System.out.println("---------------------");
+		System.out.println("Choose a start number to analyze");
+		
+	}
+
 	public void print(String x) {
 		System.out.print(x);
 	}
+
 	public void println(String x) {
 		System.out.println(x);
 	}

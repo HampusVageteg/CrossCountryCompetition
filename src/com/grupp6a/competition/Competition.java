@@ -9,20 +9,21 @@ public class Competition {
 	protected char gender;
 	protected int distance;
 	protected int intervals = 5;
+	protected double coach;
 	Person[] p;
-	
 
 	// Default constructor
 	public Competition() {
 
 	}
 
-	public Competition(int participants, char gender, int distance) {
+	public Competition(int participants, char gender, int distance, double coach) {
 		super();
 		this.participants = participants;
 		this.gender = gender;
 		this.distance = distance;
-		
+		this.coach = coach;
+
 	}
 
 	// Fyller upp objektarrayen med personobjekt, baserat på hur många participants
@@ -34,9 +35,7 @@ public class Competition {
 		}
 
 	}
-	
 
-	
 	public int getParticipants() {
 		return participants;
 	}
@@ -71,6 +70,14 @@ public class Competition {
 
 	public Person[] getP() {
 		return p;
+	}
+
+	public double getCoach() {
+		return coach;
+	}
+
+	public void setCoach(double coach) {
+		this.coach = coach;
 	}
 
 }
