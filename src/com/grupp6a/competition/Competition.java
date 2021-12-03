@@ -80,4 +80,13 @@ public class Competition {
 		this.coach = coach;
 	}
 
+	public Person getParticipant(int startNum) {
+		for (int i = 0; i < p.length; i++)
+			if (p[i].getStartNum() == startNum) {
+				return p[i];
+			}
+		return p[0];
+
+	}
+
 }

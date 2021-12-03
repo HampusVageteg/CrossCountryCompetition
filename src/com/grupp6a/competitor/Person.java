@@ -31,8 +31,8 @@ public class Person implements Comparable<Person> {
 
 	}
 
-	// Metod för att simulera ett race. Tar in angiven distans och antal
-	// intervaller.
+	// Metod för att simulera racet.
+	
 	public void race(int distance, double coach) {
 
 		double distanceToCoach;
@@ -40,12 +40,19 @@ public class Person implements Comparable<Person> {
 		double distanceToFinish;
 		double timeToFinish;
 
+		// Gör om distansen till coach från KM till meter
 		distanceToCoach = (coach * 1000);
+		// delar distansen i meter med hastigheten(Meter per sekund)
 		timeToCoach = distanceToCoach / this.speed;
+		// sparar tiden det tar att nå coachen i array och avrundar till 2 decimaler.
 		mellantider[0] = Math.round(timeToCoach * 100.0) / 100.0;
+		// Slumpar tävlandes hanstighet.
 		randomizeSpeed(this.gender);
+		// Räknar fram distansen som är kvar till målgång.
 		distanceToFinish = (distance * 1000) - distanceToCoach;
+		// Tar distansen delat i nya hastigheten för att få fram tiden.
 		timeToFinish = distanceToFinish / this.speed;
+		// Sparar tiden i mellantid array, avrundat till 2 decimaler.
 		mellantider[1] = (Math.round(timeToFinish * 100.0) / 100.0) + mellantider[0];
 		totTid[0] = startTid + mellantider[0];
 		totTid[1] = startTid + mellantider[1];
@@ -53,6 +60,8 @@ public class Person implements Comparable<Person> {
 	}
 
 	// Metod för att slumpa hastighet beroende på kön.
+	// Slumpar fram ett tal mellan 0-1, gångrar med två för herrarna.
+	// Tävlandes bashastighet är 5 meter per sekund.
 	public void randomizeSpeed(char gender) {
 
 		if (gender == 'M') {
@@ -64,37 +73,17 @@ public class Person implements Comparable<Person> {
 	}
 
 	public String toString() {
-		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[0] + "\t" + "\t" + res[1] + "\t" + totTid[0] +  "\t" + totTid[1];
+		return placement + "\t" + "\t" + "\t" + startNum + "\t" + "\t" + "\t" + res[0] + "\t" + "\t" + res[1];
 	}
 
 	public String toString(int i) {
-
+		// Skriver ut formaterade mellantiden på arrayplats i
 		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[i];
 
 	}
 
-	public char getGender() {
-		return gender;
-	}
-
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
-
 	public int getStartNum() {
 		return startNum;
-	}
-
-	public void setStartNum(int startNum) {
-		this.startNum = startNum;
-	}
-
-	public double getSpeed() {
-		return speed;
-	}
-
-	public void setSpeed(double speed) {
-		this.speed = speed;
 	}
 
 	public int getPlacement() {
@@ -109,14 +98,6 @@ public class Person implements Comparable<Person> {
 		return mellantider[i];
 	}
 
-	public void setMellantider(double[] mellantider) {
-		this.mellantider = mellantider;
-	}
-
-	public String getRes(int i) {
-		return res[i];
-	}
-
 	public void setRes(int i, String x) {
 		this.res[i] = x;
 	}
@@ -124,18 +105,11 @@ public class Person implements Comparable<Person> {
 	public int getStartTid() {
 		return startTid;
 	}
-
-	public void setStartTid(int startTid) {
-		this.startTid = startTid;
-	}
-
+	
 	public double getTotTid(int i) {
 		return totTid[i];
 	}
 
-	public void setTotTid(double[] totTid) {
-		this.totTid = totTid;
-	}
 
 	// Skapar en metod för att jämföra totaltid.
 	@Override
