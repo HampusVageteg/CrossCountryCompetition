@@ -70,9 +70,11 @@ public class ProgramLoop {
 		case 3:
 			ptc.analyzeMenu();
 			i1.analyzeContestant(ui.userChoice(numOfParticipants));
+			ptc.resultMenu();
+			showResult(ui.userChoice(5));
 			break;
 		case 4:
-
+			startMenuCases(1);
 			break;
 
 		case 5:

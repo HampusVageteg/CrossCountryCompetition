@@ -7,7 +7,7 @@ public class PrintToConsole {
 
 	public void welcomeUser() {
 
-		System.out.println("Welcome to the cross-country competition 2000!");
+		System.out.println("Welcome!");
 		System.out.println("----------------------------------------------");
 	}
 
@@ -21,16 +21,7 @@ public class PrintToConsole {
 
 	}
 
-	public void startMenu2() {
 
-		System.out.println("Choose one of the following options: ");
-
-		System.out.println("1. View result");
-		System.out.println("2. Start new competition");
-		System.out.println("3. Instructions");
-		System.out.println("4. Exit program");
-
-	}
 
 	public void instructions() {
 
@@ -71,23 +62,18 @@ public class PrintToConsole {
 		System.out.println("Invalid input, please try again!");
 	}
 
+
+	public void resultFormatet() {
+		System.out.println("---------------------");
+		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid ");
+	}
+	
 	public void resultFormat() {
-
+		
 		System.out.println("---------------------");
-		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid" + "\t" + "\t" + "Målgång");
+		System.out.println("Placering" + "\t" + "\t" + "Startnummer" + "\t" + "\t" + "Mellantid " + "\t" + "\t" + "Målgång");
 	}
 
-	public void analyzeFormat() {
-		System.out.println("---------------------");
-		System.out.println("Mellantid 1" + "\t" + "\t" + "Mellantid 2" + "\t" + "\t" + "Mellantid 3" + "\t" + "\t"
-				+ "Mellantid 4" + "\t" + "\t" + "Målgång");
-	}
-
-	public void resultFormat(int i) {
-		int u = i + 1;
-		System.out.println("---------------------");
-		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid " + u);
-	}
 
 	public void resultMenu() {
 
