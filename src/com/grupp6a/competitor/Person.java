@@ -1,8 +1,5 @@
 package com.grupp6a.competitor;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Comparator;
 import java.util.Random;
 
 // Huvudklass för deltagare.
@@ -10,11 +7,12 @@ public class Person implements Comparable<Person> {
 
 	private char gender = 'M';
 	private int startNum;
-	private int lastResult;
-	private double speed;
-	private double mellantider[] = new double[5];
-	private String res[] = new String[5];
 	private int placement;
+	private double speed;
+	private int startTid = 36000;
+	private double totTid[] = new double[2];
+	private double mellantider[] = new double[2];
+	private String res[] = new String[5];
 
 	Random rand = new Random();
 
@@ -22,6 +20,7 @@ public class Person implements Comparable<Person> {
 		super();
 		this.gender = gender;
 		this.startNum = startNum + 1;
+		this.startTid = startTid + (15 * this.startNum);
 
 		// Sätter slumpmässig hastighet mellan 5-7 beroende på kön.
 		if (gender == 'M') {
@@ -34,23 +33,22 @@ public class Person implements Comparable<Person> {
 
 	// Metod för att simulera ett race. Tar in angiven distans och antal
 	// intervaller.
-	public void race(int distance, int intervals) {
+	public void race(int distance, double coach) {
 
-		double distanceBetweenIntervals;
-		double timeToInterval = 0;
+		double distanceToCoach;
+		double timeToCoach = 0;
+		double distanceToFinish;
+		double timeToFinish;
 
-		// Räknar ut avstånden mellan intervallerna.
-		// Räknar därefter ut tiden det tar att åka mellan intervallerna, baserat på den
-		// slumpade hastigheten.
-		// Tiden lagras i en array.
-		// Hastigheten slumpas efter varje ny mellantid.
-		for (int i = 0; i < intervals; i++) {
-			distanceBetweenIntervals = (distance * 1000) / intervals;
-			timeToInterval += distanceBetweenIntervals / this.speed;
-			mellantider[i] = Math.round(timeToInterval * 100.0) / 100.0;
-			randomizeSpeed(this.gender);
-
-		}
+		distanceToCoach = (coach * 1000);
+		timeToCoach = distanceToCoach / this.speed;
+		mellantider[0] = Math.round(timeToCoach * 100.0) / 100.0;
+		randomizeSpeed(this.gender);
+		distanceToFinish = (distance * 1000) - distanceToCoach;
+		timeToFinish = distanceToFinish / this.speed;
+		mellantider[1] = (Math.round(timeToFinish * 100.0) / 100.0) + mellantider[0];
+		totTid[0] = startTid + mellantider[0];
+		totTid[1] = startTid + mellantider[1];
 
 	}
 
@@ -65,14 +63,11 @@ public class Person implements Comparable<Person> {
 
 	}
 
-
 	public String toString() {
-		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[0] + "\t" + "\t" + res[1] + "\t" + "\t" + res[2]
-				+ "\t" + "\t" + res[3] + "\t" + "\t" + res[4];
+		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[0] + "\t" + "\t" + res[1] + "\t" + totTid[0] +  "\t" + totTid[1];
 	}
-	
+
 	public String toString(int i) {
-		
 
 		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[i];
 
@@ -92,14 +87,6 @@ public class Person implements Comparable<Person> {
 
 	public void setStartNum(int startNum) {
 		this.startNum = startNum;
-	}
-
-	public int getLastResult() {
-		return lastResult;
-	}
-
-	public void setLastResult(int lastResult) {
-		this.lastResult = lastResult;
 	}
 
 	public double getSpeed() {
@@ -134,13 +121,29 @@ public class Person implements Comparable<Person> {
 		this.res[i] = x;
 	}
 
+	public int getStartTid() {
+		return startTid;
+	}
+
+	public void setStartTid(int startTid) {
+		this.startTid = startTid;
+	}
+
+	public double getTotTid(int i) {
+		return totTid[i];
+	}
+
+	public void setTotTid(double[] totTid) {
+		this.totTid = totTid;
+	}
+
 	// Skapar en metod för att jämföra totaltid.
 	@Override
 	public int compareTo(Person o) {
 		int i;
-		if (o.mellantider[4] == this.mellantider[4]) {
+		if (o.mellantider[1] == this.mellantider[1]) {
 			i = 0;
-		} else if (o.mellantider[4] < this.mellantider[4]) {
+		} else if (o.mellantider[1] < this.mellantider[1]) {
 			i = 1;
 		} else {
 			i = -1;
@@ -148,6 +151,5 @@ public class Person implements Comparable<Person> {
 
 		return i;
 	}
-	
-	
+
 }
