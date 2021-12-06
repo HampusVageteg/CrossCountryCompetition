@@ -65,13 +65,19 @@ public class PrintToConsole {
 
 	public void resultFormatet() {
 		System.out.println("---------------------");
-		System.out.println("Placering" + "\t" + "Startnummer" + "\t" + "Mellantid ");
+		System.out.println("Placement" + "\t" + "Start number" + "\t" + "Interval ");
+	}
+	
+	public void resultFormatFinish() {
+		System.out.println("---------------------");
+		System.out.println("Placement" + "\t" + "Start number" + "\t" + "Finish ");
+		
 	}
 	
 	public void resultFormat() {
 		
 		System.out.println("---------------------");
-		System.out.println("Placering" + "\t" + "\t" + "Startnummer" + "\t" + "\t" + "Mellantid " + "\t" + "\t" + "Målgång");
+		System.out.println("Placement" + "\t" + "\t" + "Start number" + "\t" + "\t" + "Interval " + "\t" + "\t" + "Finish");
 	}
 
 

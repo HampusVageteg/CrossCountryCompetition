@@ -8,7 +8,6 @@ public class Competition {
 	protected int participants;
 	protected char gender;
 	protected int distance;
-	protected int intervals = 5;
 	protected double coach;
 	Person[] p;
 
@@ -56,9 +55,6 @@ public class Competition {
 		return distance;
 	}
 
-	public int getIntervals() {
-		return intervals;
-	}
 
 	public Person getP(int i) {
 		return p[i];

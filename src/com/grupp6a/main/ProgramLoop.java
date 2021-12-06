@@ -95,7 +95,7 @@ public class ProgramLoop {
 			showResult(ui.userChoice(5));
 			break;
 		case 2:
-			i1.intervalOne(1);
+			i1.lastInterval(1);
 			ptc.resultMenu();
 			showResult(ui.userChoice(5));
 			break;
