@@ -9,7 +9,7 @@ public class Person implements Comparable<Person> {
 	private int startNum;
 	private int placement;
 	private double speed;
-	private int startTid = 36000;
+	private int startTid = 1337;
 	private double totTid[] = new double[2];
 	private double mellantider[] = new double[2];
 	private String res[] = new String[5];
