@@ -5,6 +5,7 @@ import com.grupp6a.competition.IndividualStart;
 import com.grupp6a.userInput.UserInput;
 import com.grupp6a.userinterface.PrintToConsole;
 
+// Klass för programlogiken.
 public class ProgramLoop {
 
 	private int numOfParticipants = 0;
@@ -15,6 +16,7 @@ public class ProgramLoop {
 	private PrintToConsole ptc = new PrintToConsole();
 	private UserInput ui = new UserInput();
 
+	// Ber om uppgifter och skapar tävlingen.
 	public void startMenuCases(int userInput) {
 
 		switch (userInput) {
@@ -33,8 +35,11 @@ public class ProgramLoop {
 			gender = ui.inputChar();
 
 			i1 = new IndividualStart(numOfParticipants, gender, distance, coach);
+
+			// Skapar personobjekt baserat på angivna uppgifter.
 			i1.fillArray(i1.getParticipants());
 
+			// Loopar igenom deltagararrayen och kör tävlingen.
 			for (int i = 0; i < i1.getParticipants(); i++) {
 				i1.getP(i).race(i1.getDistance(), i1.getCoach());
 
@@ -46,6 +51,8 @@ public class ProgramLoop {
 			break;
 		case 2:
 			ptc.instructions();
+			ptc.startMenu();
+			startMenuCases(ui.userChoice(3));
 			break;
 		case 3:
 			ptc.exitProgram();
@@ -55,6 +62,7 @@ public class ProgramLoop {
 		}
 	}
 
+	//
 	public void showResult(int a) {
 		switch (a) {
 
@@ -85,7 +93,7 @@ public class ProgramLoop {
 		}
 	}
 
-	// Meny
+	//
 	public void checkStandings(int b) {
 		switch (b) {
 

@@ -55,7 +55,6 @@ public class Competition {
 		return distance;
 	}
 
-
 	public Person getP(int i) {
 		return p[i];
 	}
@@ -76,6 +75,8 @@ public class Competition {
 		this.coach = coach;
 	}
 
+	// Tar ett startnummer och loopar igenom alla deltagare.
+	// För att hitta motsvarande nummer, returnerar deltagaren med samma nummer.
 	public Person getParticipant(int startNum) {
 		for (int i = 0; i < p.length; i++)
 			if (p[i].getStartNum() == startNum) {
