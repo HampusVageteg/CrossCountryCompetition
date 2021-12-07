@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import com.grupp6a.userinterface.PrintToConsole;
 
+// Kontrollerar input från användaren med hjälp av tre olika try/catch metoder.
+// Beroende på när det ska användas och vilken datatyp som skall skrivas.
 public class UserInput {
 
 	Scanner scan = new Scanner(System.in);

@@ -21,12 +21,14 @@ public class PrintToConsole {
 
 	}
 
-
-
 	public void instructions() {
 
 		System.out.println("---------------------\n");
-		System.out.println("test");
+		System.out.println(
+				"This program simulates a cross-country competition. The program asks for certain parameters from the user and then runs the simulation based on this.\n"
+						+ "Information about placement, time at the interval and time at the finish line is then displayed."
+						+ "\nFor more details you can analyze a specific contestant.");
+		System.out.println("\n---------------------");
 
 	}
 
@@ -62,24 +64,24 @@ public class PrintToConsole {
 		System.out.println("Invalid input, please try again!");
 	}
 
-
 	public void resultFormatet() {
 		System.out.println("---------------------");
-		System.out.println("Placement" + "\t" + "Start number" + "\t" + "Interval ");
+		System.out.println(
+				"Placement" + "\t" + "Start number" + "\t" + "Interval " + "\t" + "\t" + "Timestamp at interval ");
 	}
-	
+
 	public void resultFormatFinish() {
 		System.out.println("---------------------");
 		System.out.println("Placement" + "\t" + "Start number" + "\t" + "Finish ");
-		
-	}
-	
-	public void resultFormat() {
-		
-		System.out.println("---------------------");
-		System.out.println("Placement" + "\t" + "\t" + "Start number" + "\t" + "\t" + "Interval " + "\t" + "\t" + "Finish");
+
 	}
 
+	public void resultFormat() {
+
+		System.out.println("---------------------");
+		System.out.println("Placement" + "\t" + "\t" + "Start number" + "\t" + "\t" + "Interval " + "\t" + "\t"
+				+ "Finish" + "\t" + "\t" + "\t" + "Timestamp at Finish");
+	}
 
 	public void resultMenu() {
 
@@ -103,16 +105,16 @@ public class PrintToConsole {
 		System.out.println("3. Previous menu");
 
 	}
-	
+
 	public void exitProgram() {
 		System.out.println("Closing application!");
 	}
-	
+
 	public void analyzeMenu() {
-		
+
 		System.out.println("---------------------");
 		System.out.println("Choose a start number to analyze");
-		
+
 	}
 
 	public void print(String x) {

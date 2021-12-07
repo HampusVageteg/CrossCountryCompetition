@@ -10,7 +10,7 @@ public class Main {
 		PrintToConsole ptc = new PrintToConsole();
 		UserInput ui = new UserInput();
 		ProgramLoop pL = new ProgramLoop();
-		
+
 		ptc.welcomeUser();
 		ptc.startMenu();
 		pL.startMenuCases(ui.userChoice(3));

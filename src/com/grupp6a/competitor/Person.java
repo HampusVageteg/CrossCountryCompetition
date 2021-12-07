@@ -2,17 +2,18 @@ package com.grupp6a.competitor;
 
 import java.util.Random;
 
-// Huvudklass för deltagare.
+// Klass för deltagare.
 public class Person implements Comparable<Person> {
 
 	private char gender = 'M';
 	private int startNum;
 	private int placement;
 	private double speed;
-	private int startTid = 1337;
+	private int startTid = 35985;
 	private double totTid[] = new double[2];
 	private double mellantider[] = new double[2];
-	private String res[] = new String[5];
+	private String res[] = new String[2];
+	private String clock[] = new String[2];
 
 	Random rand = new Random();
 
@@ -32,7 +33,7 @@ public class Person implements Comparable<Person> {
 	}
 
 	// Metod för att simulera racet.
-	
+
 	public void race(int distance, double coach) {
 
 		double distanceToCoach;
@@ -73,12 +74,12 @@ public class Person implements Comparable<Person> {
 	}
 
 	public String toString() {
-		return placement + "\t" + "\t" + "\t" + startNum + "\t" + "\t" + "\t" + res[0] + "\t" + "\t" + res[1];
+		return placement + "\t" + "\t" + "\t" + startNum + "\t" + "\t" + "\t" + res[0] + "\t" + "\t" + res[1] +  "\t" + "\t" + clock[1];
 	}
 
 	public String toString(int i) {
 		// Skriver ut formaterade mellantiden på arrayplats i
-		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[i];
+		return placement + "\t" + "\t" + startNum + "\t" + "\t" + res[i] + "\t" + "\t" + clock[i];
 
 	}
 
@@ -105,11 +106,18 @@ public class Person implements Comparable<Person> {
 	public int getStartTid() {
 		return startTid;
 	}
-	
+
 	public double getTotTid(int i) {
 		return totTid[i];
 	}
 
+	public String[] getClock() {
+		return clock;
+	}
+
+	public void setClock(int i, String x) {
+		this.clock[i] = x;
+	}
 
 	// Skapar en metod för att jämföra totaltid.
 	@Override
