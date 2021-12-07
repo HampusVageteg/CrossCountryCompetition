@@ -27,7 +27,7 @@ public class IndividualStart extends Competition {
 		this.p = new Person[participants];
 
 	}
-
+    // Metod som sorterar arrayen baserat på första intervallen
 	public void intervalOne(int u) {
 		Arrays.sort(IndividualStart.this.p, new CompareTwo());
 
@@ -39,7 +39,7 @@ public class IndividualStart extends Competition {
 
 		}
 	}
-
+    // Metod som sorterar arrayen baserat på målgången.
 	public void lastInterval(int u) {
 		Arrays.sort(IndividualStart.this.p);
 		ptc.resultFormatFinish();
