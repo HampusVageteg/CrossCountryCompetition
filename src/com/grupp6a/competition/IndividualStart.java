@@ -33,7 +33,7 @@ public class IndividualStart extends Competition {
 	// Metod som sorterar arrayen baserat på första intervallen
 	public void intervalOne(int u) {
 		Arrays.sort(IndividualStart.this.p, new ContestantIntervalComparator());
-
+		clockAtInterval();
 		ptc.resultFormatet();
 		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
 			IndividualStart.this.p[i].setPlacement(i + 1);
