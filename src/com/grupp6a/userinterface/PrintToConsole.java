@@ -25,7 +25,7 @@ public class PrintToConsole {
 
 		System.out.println("---------------------\n");
 		System.out.println(
-				"This program simulates a cross-country competition. The program asks for certain parameters from the user and then runs the simulation based on this.\n"
+				"This program simulates a cross-country competition. The program asks for certain parameters from the user and then runs the simulation based on those.\n"
 						+ "Information about placement, time at the interval and time at the finish line is then displayed."
 						+ "\nFor more details you can analyze a specific contestant.");
 		System.out.println("\n---------------------");
