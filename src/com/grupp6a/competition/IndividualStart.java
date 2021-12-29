@@ -22,11 +22,11 @@ public class IndividualStart extends Competition {
 
 	public IndividualStart(int participants, char gender, int distance, double coach) {
 		super();
-		this.participants = participants;
-		this.gender = gender;
-		this.distance = distance;
-		this.coach = coach;
-		this.p = new Person[participants];
+		setParticipants(participants);
+        setGender(gender);
+        setDistance(distance);
+        setCoach(coach);
+        this.p = new Person[participants];
 
 	}
 
@@ -35,7 +35,7 @@ public class IndividualStart extends Competition {
 		Arrays.sort(IndividualStart.this.p, new ContestantIntervalComparator());
 
 		ptc.resultFormatet();
-		for (int i = 0; i < IndividualStart.this.participants; i++) {
+		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
 			IndividualStart.this.p[i].setPlacement(i + 1);
 			convert();
 			System.out.println(IndividualStart.this.p[i].toString(u));
@@ -47,7 +47,7 @@ public class IndividualStart extends Competition {
 	public void lastInterval(int u) {
 		Arrays.sort(IndividualStart.this.p);
 		ptc.resultFormatFinish();
-		for (int i = 0; i < IndividualStart.this.participants; i++) {
+		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
 			IndividualStart.this.p[i].setPlacement(i + 1);
 			convert();
 			System.out.println(IndividualStart.this.p[i].toString(u));
@@ -58,7 +58,7 @@ public class IndividualStart extends Competition {
 	public void finalresult() {
 		Arrays.sort(IndividualStart.this.p);
 		ptc.resultFormat();
-		for (int i = 0; i < IndividualStart.this.participants; i++) {
+		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
 			IndividualStart.this.p[i].setPlacement(i + 1);
 			convert();
 			clockAtInterval();
@@ -72,7 +72,7 @@ public class IndividualStart extends Competition {
 	public void convert() {
 		String format = "";
 
-		for (int i = 0; i < IndividualStart.this.participants; i++) {
+		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
 			for (int j = 0; j <= 1; j++) {
 				int HH = (int) IndividualStart.this.p[i].getMellantider(j) / 3600;
 				int MM = (int) (IndividualStart.this.p[i].getMellantider(j) - (HH * 3600)) / 60;
@@ -124,7 +124,7 @@ public class IndividualStart extends Competition {
 
 		String format = "";
 
-		for (int i = 0; i < IndividualStart.this.participants; i++) {
+		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
 			for (int j = 0; j <= 1; j++) {
 				int HH = (int) (IndividualStart.this.p[i].getMellantider(j) + IndividualStart.this.p[i].getStartTid())
 						/ 3600;

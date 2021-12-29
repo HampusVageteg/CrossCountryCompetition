@@ -5,10 +5,10 @@ import com.grupp6a.competitor.Person;
 // Huvudklass för de olika tävlingsformaten.
 public class Competition {
 
-	protected int participants;
-	protected char gender;
-	protected int distance;
-	protected double coach;
+	private int participants;
+	private char gender;
+	private int distance;
+	private double coach;
 	Person[] p;
 
 	// Default constructor
@@ -54,6 +54,10 @@ public class Competition {
 	public int getDistance() {
 		return distance;
 	}
+	
+	public void setDistance(int distance) {
+        this.distance = distance;
+    }
 
 	public Person getP(int i) {
 		return p[i];
