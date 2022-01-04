@@ -46,6 +46,7 @@ public class IndividualStart extends Competition {
 	// Metod som sorterar arrayen baserat på målgången.
 	public void lastInterval(int u) {
 		Arrays.sort(IndividualStart.this.p);
+		clockAtInterval();
 		ptc.resultFormatFinish();
 		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
 			IndividualStart.this.p[i].setPlacement(i + 1);
