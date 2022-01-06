@@ -1,6 +1,6 @@
 package com.grupp6a.competition;
 
-import com.grupp6a.competitor.Person;
+import com.grupp6a.competitor.Competitor;
 
 // Huvudklass för de olika tävlingsformaten.
 public class Competition {
@@ -9,7 +9,8 @@ public class Competition {
 	private char gender;
 	private int distance;
 	private double coach;
-	Person[] p;
+	private Competitor p[];
+
 
 	// Default constructor
 	public Competition() {
@@ -25,15 +26,7 @@ public class Competition {
 
 	}
 
-	// Fyller upp objektarrayen med personobjekt, baserat på hur många participants
-	// är med.
-	public void fillArray(int participants) {
-
-		for (int i = 0; i < participants; i++) {
-			p[i] = new Person(gender, i);
-		}
-
-	}
+	
 
 	public int getParticipants() {
 		return participants;
@@ -59,15 +52,15 @@ public class Competition {
         this.distance = distance;
     }
 
-	public Person getP(int i) {
+	public Competitor getP(int i) {
 		return p[i];
 	}
 
-	public void setP(Person[] p) {
+	public void setP(Competitor[] p) {
 		this.p = p;
 	}
 
-	public Person[] getP() {
+	public Competitor[] getP() {
 		return p;
 	}
 
@@ -80,8 +73,8 @@ public class Competition {
 	}
 
 	// Tar ett startnummer och loopar igenom alla deltagare.
-	// För att hitta motsvarande nummer, returnerar deltagaren med samma nummer.
-	public Person getParticipant(int startNum) {
+	// Gör det för att hitta objektet med motsvarande startnummer och returnerar objektet.
+	public Competitor getParticipant(int startNum) {
 		for (int i = 0; i < p.length; i++)
 			if (p[i].getStartNum() == startNum) {
 				return p[i];

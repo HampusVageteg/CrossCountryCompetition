@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import com.grupp6a.compare.TotalTimeToIntervalComparator;
 import com.grupp6a.compare.ContestantIntervalComparator;
-import com.grupp6a.competitor.Person;
+import com.grupp6a.competitor.Competitor;
 import com.grupp6a.userinterface.PrintToConsole;
 
 // Subklass till Competition.
@@ -12,7 +12,8 @@ import com.grupp6a.userinterface.PrintToConsole;
 public class IndividualStart extends Competition {
 
 	private PrintToConsole ptc = new PrintToConsole();
-	
+	private TimeManagement tm = new TimeManagement();
+
 	TotalTimeToIntervalComparator comp = new TotalTimeToIntervalComparator();
 
 	public IndividualStart() {
@@ -23,126 +24,97 @@ public class IndividualStart extends Competition {
 	public IndividualStart(int participants, char gender, int distance, double coach) {
 		super();
 		setParticipants(participants);
-        setGender(gender);
-        setDistance(distance);
-        setCoach(coach);
-        this.p = new Person[participants];
+		setGender(gender);
+		setDistance(distance);
+		setCoach(coach);
+		setP(new Competitor[participants]);
+
+	}
+
+	// Fyller upp objektarrayen med personobjekt, baserat på hur många participants
+	// är med.
+	public void fillArray(int participants) {
+
+		for (int i = 0; i < participants; i++) {
+			getP()[i] = new Competitor(getGender());
+			getP()[i].setStartNum(i + 1);
+			getP()[i].setStartTid();
+		}
 
 	}
 
 	// Metod som sorterar arrayen baserat på första intervallen
 	public void intervalOne(int u) {
-		Arrays.sort(IndividualStart.this.p, new ContestantIntervalComparator());
-		clockAtInterval();
+		Arrays.sort(getP(), new ContestantIntervalComparator());
+		tm.clockAtInterval(getP());
 		ptc.resultFormatet();
-		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
-			IndividualStart.this.p[i].setPlacement(i + 1);
-			convert();
-			System.out.println(IndividualStart.this.p[i].toString(u));
+		for (int i = 0; i < getParticipants(); i++) {
+			getP()[i].setPlacement(i + 1);
+			tm.convert(getP());
+			ptc.println(getP()[i].infoAtInterval(u));
 
 		}
 	}
 
 	// Metod som sorterar arrayen baserat på målgången.
 	public void lastInterval(int u) {
-		Arrays.sort(IndividualStart.this.p);
-		clockAtInterval();
+		// sorterar baserat på personklassens compareTo
+		Arrays.sort(getP());
+		tm.clockAtInterval(getP());
 		ptc.resultFormatFinish();
-		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
-			IndividualStart.this.p[i].setPlacement(i + 1);
-			convert();
-			System.out.println(IndividualStart.this.p[i].toString(u));
+		for (int i = 0; i < getParticipants(); i++) {
+			getP()[i].setPlacement(i + 1);
+			tm.convert(getP());
+			ptc.println(getP()[i].infoAtInterval(u));
 		}
 	}
 
 	// Metod som sorterar tid för målgång och skriver ut toString metoden.
 	public void finalresult() {
-		Arrays.sort(IndividualStart.this.p);
+		// sorterar baserat på personklassens compareTo
+		Arrays.sort(getP());
 		ptc.resultFormat();
-		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
-			IndividualStart.this.p[i].setPlacement(i + 1);
-			convert();
-			clockAtInterval();
-			System.out.println(IndividualStart.this.p[i].toString());
+		for (int i = 0; i < getParticipants(); i++) {
+			getP()[i].setPlacement(i + 1);
+			tm.convert(getP());
+			tm.clockAtInterval(getP());
+			ptc.println(getP()[i].toString());
 
 		}
 	}
 
-	// Metod som räknar ut timme,minut,sekund och hundradelar och formatterar
-	// utskriften.
-	public void convert() {
-		String format = "";
-
-		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
-			for (int j = 0; j <= 1; j++) {
-				int HH = (int) IndividualStart.this.p[i].getMellantider(j) / 3600;
-				int MM = (int) (IndividualStart.this.p[i].getMellantider(j) - (HH * 3600)) / 60;
-				int SS = (int) IndividualStart.this.p[i].getMellantider(j) % 60;
-				double x = (double) IndividualStart.this.p[i].getMellantider(j) * 100;
-				int y = (int) IndividualStart.this.p[i].getMellantider(j) * 100;
-				int MS = (int) x - y;
-				format = String.format("%02d:%02d:%02d:%02d", HH, MM, SS, MS);
-
-				IndividualStart.this.p[i].setRes(j, format);
-			}
-
-		}
-
-	}
+	/*
+	 * Sorterar p[] arreyen baserat på totaltiden (starttid + åktid). Väljer array,
+	 * anropar extern comparator. Baserat på nya sorteringen få får deltagarna en
+	 * placering. Anropar convert metoden via tm. Det gör vi för att snygga till
+	 * formatet på mellantiderna.
+	 * 
+	 * Sorterar arryen på nytt, denna gång sorterar vi bara från första placeringen
+	 * till placeringen där vår deltagare befinner sig. Exempelvis om vår deltagare
+	 * är på plats 5 efter första sorteringen så sorterar vi bara de 5 första
+	 * platserna i arrayen. Vi sorterar dessa på deras mellantider istället för
+	 * totaltid
+	 * 
+	 * Väljer array som ska sorteras, väljer vilket index den ska sortera ifrån,
+	 * väljer vilket index den ska sortera till, anorpar extern comparator.
+	 * 
+	 * Sätter ny placering till deltagarna baserat på senaste sorteringen. Anropar
+	 * en toString metod som tillhör objektet vi analyserar.
+	 */
 
 	public void analyzeContestant(int a) {
-		// Sorterar p[] arreyen baserat på totaltiden (starttid + åktid) till ledarens
-		// placering längs spåret.
-		Arrays.sort(IndividualStart.this.p, new TotalTimeToIntervalComparator());
-		for (int i = 0; i < IndividualStart.this.p.length; i++) {
-			// Baserat på nya sorteringen få får deltagarna en placering.
-			IndividualStart.this.p[i].setPlacement(i + 1);
 
+		Arrays.sort(getP(), new TotalTimeToIntervalComparator());
+		for (int i = 0; i < getP().length; i++) {
+			getP()[i].setPlacement(i + 1);
 		}
-		// Anropar convert metoden som tillhör denna klass. Det gör vi för att snygga
-		// till formatet på mellantiderna.
-		convert();
-		clockAtInterval();
-		// Sorterar arryen på nytt, denna gång sorterar vi bara från första placeringen
-		// till placeringen där vår deltagare är.
-		// Exempelvis om vår deltagare är på plats 5 efter första sorteringen så
-		// sorterar vi bara de 5 första platserna i arrayen.
-		// Vi sorterar dessa på deras mellantider istället för totaltid
-		Arrays.sort(IndividualStart.this.p, 0, IndividualStart.this.getParticipant(a).getPlacement(), new ContestantIntervalComparator());
+		tm.convert(getP());
+		tm.clockAtInterval(getP());
+		Arrays.sort(getP(), 0, getParticipant(a).getPlacement(), new ContestantIntervalComparator());
 		ptc.resultFormatet();
-		for (int i = 0; i < IndividualStart.this.getParticipant(a).getPlacement(); i++) {
-			// Sätter ny placering till deltagarna baserat på senaste sorteringen.
-			IndividualStart.this.p[i].setPlacement(i + 1);
-			// Anropar en toString metod som tillhör objektet vi analyserar.
-			ptc.println(IndividualStart.this.p[i].toString(0));
-		}
-
-	}
-
-	// Metod som räknar ut timme,minut,sekund och hundradelar och formatterar. 
-	// Används vid intervallen för att skriva ut klockslag.
-	public void clockAtInterval() {
-
-		String format = "";
-
-		for (int i = 0; i < IndividualStart.this.getParticipants(); i++) {
-			for (int j = 0; j <= 1; j++) {
-				int HH = (int) (IndividualStart.this.p[i].getMellantider(j) + IndividualStart.this.p[i].getStartTid())
-						/ 3600;
-				int MM = (int) ((IndividualStart.this.p[i].getMellantider(j) + IndividualStart.this.p[i].getStartTid())
-						- (HH * 3600)) / 60;
-				int SS = (int) (IndividualStart.this.p[i].getMellantider(j) + IndividualStart.this.p[i].getStartTid())
-						% 60;
-				double x = (double) (IndividualStart.this.p[i].getMellantider(j)
-						+ IndividualStart.this.p[i].getStartTid()) * 100;
-				int y = (int) (IndividualStart.this.p[i].getMellantider(j) + IndividualStart.this.p[i].getStartTid())
-						* 100;
-				int MS = (int) x - y;
-				format = String.format("%02d:%02d:%02d:%02d", HH, MM, SS, MS);
-
-				IndividualStart.this.p[i].setClock(j, format);
-			}
-
+		for (int i = 0; i < getParticipant(a).getPlacement(); i++) {
+			getP()[i].setPlacement(i + 1);
+			ptc.println(getP()[i].infoAtInterval(0));
 		}
 
 	}

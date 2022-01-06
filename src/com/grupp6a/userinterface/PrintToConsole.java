@@ -72,15 +72,16 @@ public class PrintToConsole {
 
 	public void resultFormatFinish() {
 		System.out.println("---------------------");
-		System.out.println("Placement" + "\t" + "Start number" + "\t" + "Finish" + "\t" + "\t" + "\t" + "Timestamp at Finish");
+		System.out.println(
+				"Placement" + "\t" + "Start number" + "\t" + "Finish" + "\t" + "\t" + "\t" + "Timestamp at Finish");
 
 	}
 
 	public void resultFormat() {
 
 		System.out.println("---------------------");
-		System.out.println("Placement" + "\t" + "\t" + "Start number" + "\t" + "\t" + "Interval " + "\t" + "\t"
-				+ "Finish" + "\t" + "\t" + "\t" + "Timestamp at Finish");
+		System.out.println("Name" + "\t" + "\t" + "\t" + "\t" + "Placement" + "\t" + "\t" + "Start number" + "\t" + "\t"
+				+ "Interval " + "\t" + "\t" + "Finish" + "\t" + "\t" + "\t" + "Timestamp at Finish");
 	}
 
 	public void resultMenu() {
