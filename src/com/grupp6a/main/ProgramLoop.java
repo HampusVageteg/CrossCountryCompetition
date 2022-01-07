@@ -4,6 +4,7 @@ import com.grupp6a.competition.IndividualStart;
 
 import com.grupp6a.userInput.UserInput;
 import com.grupp6a.userinterface.PrintToConsole;
+import com.grupp6a.competition.TimeManagement;
 
 // Klass för programlogiken.
 public class ProgramLoop {
@@ -14,6 +15,7 @@ public class ProgramLoop {
 	private double coach = 0;
 	private IndividualStart i1;
 	private PrintToConsole ptc = new PrintToConsole();
+	private TimeManagement tm = new TimeManagement();
 	private UserInput ui = new UserInput();
 
 	// Ber om uppgifter och skapar tävlingen.
@@ -40,10 +42,12 @@ public class ProgramLoop {
 			i1.fillArray(i1.getParticipants());
 
 			// Loopar igenom deltagararrayen och kör tävlingen.
-			for (int i = 0; i < i1.getParticipants(); i++) {
-				i1.getP(i).race(i1.getDistance(), i1.getCoach());
+			tm.race(i1.getDistance(), i1.getCoach(), i1.getP());
 
-			}
+//			for (int i = 0; i < i1.getParticipants(); i++) {
+//				i1.getP(i).race(i1.getDistance(), i1.getCoach(), i1.getP());
+//
+//			}
 
 			ptc.resultMenu();
 			showResult(ui.userChoice(5));
@@ -77,7 +81,9 @@ public class ProgramLoop {
 			break;
 		case 3:
 			ptc.analyzeMenu();
-			i1.analyzeContestant(ui.userChoice(numOfParticipants));
+			int contestant = ui.userChoice(numOfParticipants);
+			i1.analyzeContestant(contestant);
+			i1.getParticipant(contestant).competitorInfo();
 			ptc.resultMenu();
 			showResult(ui.userChoice(5));
 			break;
