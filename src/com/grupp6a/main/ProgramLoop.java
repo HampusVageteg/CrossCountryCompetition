@@ -39,7 +39,7 @@ public class ProgramLoop {
 			i1 = new IndividualStart(numOfParticipants, gender, distance, coach);
 
 			// Skapar personobjekt baserat på angivna uppgifter.
-			i1.fillArray(i1.getParticipants());
+			i1.addParticipants(i1.getParticipants());
 
 			// Loopar igenom deltagararrayen och kör tävlingen.
 			tm.race(i1.getDistance(), i1.getCoach(), i1.getP());

@@ -33,7 +33,7 @@ public class IndividualStart extends Competition {
 
 	// Fyller upp objektarrayen med personobjekt, baserat på hur många participants
 	// är med.
-	public void fillArray(int participants) {
+	public void addParticipants(int participants) {
 
 		for (int i = 0; i < participants; i++) {
 			getP()[i] = new Competitor(getGender());
