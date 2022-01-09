@@ -21,12 +21,13 @@ public class IndividualStart extends Competition {
 
 	}
 
-	public IndividualStart(int participants, char gender, int distance, double coach) {
+	public IndividualStart(int participants, char gender, int distance, double coach, int startTime) {
 		super();
 		setParticipants(participants);
 		setGender(gender);
 		setDistance(distance);
 		setCoach(coach);
+		setStartTime(startTime);
 		setP(new Competitor[participants]);
 
 	}
@@ -38,7 +39,8 @@ public class IndividualStart extends Competition {
 		for (int i = 0; i < participants; i++) {
 			getP()[i] = new Competitor(getGender());
 			getP()[i].setStartNum(i + 1);
-			getP()[i].setStartTid();
+			getP()[i].setStartTid(getStartTime() + (i * 15));
+
 		}
 
 	}

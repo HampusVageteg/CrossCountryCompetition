@@ -6,7 +6,8 @@ import java.util.Random;
 
 // Klass för deltagare.
 public class Person {
-
+	 
+	
 	List<String> mfname = Arrays
 			.asList(new String[] { "Lars", "Sven", "Björn", "Johan", "Erik", "Per", "Peter", "Karl", "David", "Jan" });
 	List<String> ffname = Arrays
@@ -43,24 +44,7 @@ public class Person {
 		this.gender = gender;
 	}
 
-	public String getFname() {
-		return fname;
-	}
-
 	public String getFullName() {
 		return fullName;
 	}
-
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public void setLname(String lname) {
-		this.lname = lname;
-	}
-
 }

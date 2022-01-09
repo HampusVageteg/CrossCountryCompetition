@@ -1,5 +1,7 @@
 package com.grupp6a.userinterface;
 
+import com.grupp6a.competitor.Competitor;
+
 public class PrintToConsole {
 
 	public PrintToConsole() {
@@ -30,6 +32,16 @@ public class PrintToConsole {
 						+ "\nFor more details you can analyze a specific contestant.");
 		System.out.println("\n---------------------");
 
+	}
+
+	public void askStartHour() {
+		System.out.println("---------------------\n");
+		System.out.println("When does the race start? Enter hour, 0-23");
+	}
+
+	public void askStartMin() {
+		System.out.println("---------------------\n");
+		System.out.println("When does the race start? Enter minute, 0-59");
 	}
 
 	public void askParticipants() {
@@ -116,6 +128,16 @@ public class PrintToConsole {
 		System.out.println("---------------------");
 		System.out.println("Choose a start number to analyze");
 
+	}
+
+	public void competitorInfo(Competitor c1) {
+		System.out.println("---------------------");
+		System.out.println("Contestant: " + c1.getFullName());
+		System.out.println("Start number: " + c1.getStartNum());
+		System.out.println("Start time: " + c1.converter(c1.getStartTid()));
+		System.out.println("Time to interval: " + c1.converter(c1.getMellantider()[0]));
+		System.out.println("Race time: " + c1.converter(c1.getMellantider()[1]));
+		System.out.println("Time at finish line: " + c1.getClock()[1]);
 	}
 
 	public void print(String x) {

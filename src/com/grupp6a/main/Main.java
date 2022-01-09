@@ -13,7 +13,7 @@ public class Main {
 
 		ptc.welcomeUser();
 		ptc.startMenu();
-		pL.startMenuCases(ui.userChoice(3));
+		pL.startMenuCases(ui.userChoice(3, 0));
 
 	}
 
