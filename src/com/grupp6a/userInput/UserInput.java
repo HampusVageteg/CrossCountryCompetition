@@ -33,7 +33,7 @@ public class UserInput {
 
 		} while (!validInput);
 
-		// scan.nextLine();
+		
 		return input;
 
 	}
