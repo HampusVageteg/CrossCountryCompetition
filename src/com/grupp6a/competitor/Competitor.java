@@ -95,7 +95,7 @@ public class Competitor extends Person implements Comparable<Competitor> {
 
 	}
 
-	// Formatterar om angivet antal sekunder till minuter timmar sekunder 
+	// Formatterar om angivet antal sekunder till minuter timmar sekunder
 	public String converter(double time) {
 
 		String format = "";

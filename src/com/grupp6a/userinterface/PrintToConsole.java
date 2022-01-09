@@ -5,7 +5,7 @@ import com.grupp6a.competitor.Competitor;
 public class PrintToConsole {
 
 	public PrintToConsole() {
-	};
+	}
 
 	public void welcomeUser() {
 

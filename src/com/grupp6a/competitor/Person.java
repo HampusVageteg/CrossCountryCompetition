@@ -6,14 +6,14 @@ import java.util.Random;
 
 // Klass för deltagare.
 public class Person {
-	 
-	
+	private
+
 	List<String> mfname = Arrays
 			.asList(new String[] { "Lars", "Sven", "Björn", "Johan", "Erik", "Per", "Peter", "Karl", "David", "Jan" });
-	List<String> ffname = Arrays
+	private List<String> ffname = Arrays
 			.asList(new String[] { "Anna", "Eva", "Maria", "Karin", "Sara", "Fia", "Lena", "Emma", "Pia", "Marie" });
-	List<String> lastname = Arrays.asList(new String[] { "Andersson", "Johansson", "Karlsson", "Nilsson", "Eriksson",
-			"Larsson", "Olsson", "Persson", "Svensson", "Knutsson" });
+	private List<String> lastname = Arrays.asList(new String[] { "Andersson", "Johansson", "Karlsson", "Nilsson",
+			"Eriksson", "Larsson", "Olsson", "Persson", "Svensson", "Knutsson" });
 
 	private char gender = 'M';
 	private String fname;
