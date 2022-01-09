@@ -9,24 +9,31 @@ public class Competition {
 	private char gender;
 	private int distance;
 	private double coach;
+	private int startTime;
 	private Competitor p[];
-
 
 	// Default constructor
 	public Competition() {
 
 	}
 
-	public Competition(int participants, char gender, int distance, double coach) {
+	public Competition(int participants, char gender, int distance, double coach, int startTime) {
 		super();
 		this.participants = participants;
 		this.gender = gender;
 		this.distance = distance;
 		this.coach = coach;
+		this.startTime = startTime;
 
 	}
 
-	
+	public int getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(int startTime) {
+		this.startTime = startTime;
+	}
 
 	public int getParticipants() {
 		return participants;
@@ -47,10 +54,10 @@ public class Competition {
 	public int getDistance() {
 		return distance;
 	}
-	
+
 	public void setDistance(int distance) {
-        this.distance = distance;
-    }
+		this.distance = distance;
+	}
 
 	public Competitor getP(int i) {
 		return p[i];
@@ -73,7 +80,8 @@ public class Competition {
 	}
 
 	// Tar ett startnummer och loopar igenom alla deltagare.
-	// Gör det för att hitta objektet med motsvarande startnummer och returnerar objektet.
+	// Gör det för att hitta objektet med motsvarande startnummer och returnerar
+	// objektet.
 	public Competitor getParticipant(int startNum) {
 		for (int i = 0; i < p.length; i++)
 			if (p[i].getStartNum() == startNum) {

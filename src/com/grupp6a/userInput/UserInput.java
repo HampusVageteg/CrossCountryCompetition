@@ -12,7 +12,7 @@ public class UserInput {
 	Scanner scan = new Scanner(System.in);
 	private PrintToConsole ptc = new PrintToConsole();
 
-	public int userChoice(int limit) {
+	public int userChoice(int maxLimit, int minLimit) {
 
 		boolean validInput = false;
 		int input = 0;
@@ -20,7 +20,7 @@ public class UserInput {
 		do {
 			try {
 				input = scan.nextInt();
-				if (input > 0 && input <= limit) {
+				if (input > minLimit && input <= maxLimit) {
 					validInput = true;
 				} else {
 					ptc.invalidInput();

@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import com.grupp6a.competitor.Competitor;
 
-//Class för sortering av objekt array baserat på objektens "total tid" fram till första mellantiden.
+//Klass för sortering av objekt array baserat på objektens "total tid" fram till första mellantiden.
 public class TotalTimeToIntervalComparator implements Comparator<Competitor> {
 
 	public int compare(Competitor p1, Competitor p2) {
